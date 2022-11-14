@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}PCOS Home{% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    <!-- LANDING -->
+    <main id="home">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <img src="{{ url_for('static', filename='assets/ovary.jpg') }}" class="img-fluid" alt="ovary img" />
+                </div>
+                <div class="col p-5">
+                    <h1>PCOS<br>DIAGNOSING<br>TOOL</h1>
+                    <p>This tool will diagnose if the patient is infected with Polycystic Ovary Syndrome by examining
+                        physical and clinical assessment of the patient using the machine learning models SVM and
+                        Decision Tree</p>
+                    <a class="btn btn-lightred btn-lg fw-bolder" href="{{ url_for('tool')}}" role="button">START</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    {% endblock %}
+   
+
+</body>
+
+</html>
