@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, redirect, url_for, render_template
+from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import pickle
 import os
 import pandas as pd
@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 model = pickle.load(open('models\svm-model.pkl', 'rb'))
-
+app.secret_key = "hello"
 
 @app.route("/")
 def home():
@@ -36,11 +36,8 @@ def allowed_excel(filename):
 @app.route("/tool", methods=["GET", "POST"])
 def tool():
 
-
     if request.method == "POST":
-
         if request.files:
-
             excel = request.files["input"]
 
             if excel.filename == "":
@@ -89,10 +86,20 @@ def tool():
 
             print(output)
 
-            return redirect(request.url)
-        
-    return render_template("tool.html")
+            session['result'] = int(output)
 
+            return redirect(url_for("result"))
+    else:    
+        return render_template("tool.html")
+
+
+@app.route("/result", methods=["GET", "POST"])
+def result():
+    if "result" in session:
+        result = session["result"]
+        return f"<h1>{result}</h1>"
+    else:
+        return redirect(url_for("tool"))
 
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
