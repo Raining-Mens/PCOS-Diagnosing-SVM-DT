@@ -20,17 +20,36 @@ app.config["EXCEL_UPLOADS"] = "./static/assets/uploads"
 app.config["ALLOWED_EXCEL_EXTENSIONS"] = ["XLSX", "CSV", "XLS"]
 
 
-def allowed_excel(filename):
 
-    if not "." in filename:
-        return False
+def predict_excel(excel):
+    wb = load_workbook(excel)
 
-    ext = filename.rsplit(".", 1)[1]
+    ws = wb.active
 
-    if ext.upper() in app.config["ALLOWED_EXCEL_EXTENSIONS"]:
-        return True
-    else:
-        return False
+    CycleRI = ws["D26"].value
+    FSHmIUmL = ws["E26"].value
+    LHmIUmL = ws["F26"].value
+    AMHngmL = ws["G26"].value
+    PulseRateBPM = ws["H26"].value
+    PRGngmL = ws["I26"].value
+    RBSmgdl = ws["J26"].value
+    BP_SystolicmmHg = ws["K26"].value
+    BP_DiastolicmmHg = ws["L26"].value
+    AvgFsizeLmm = ws["M26"].value
+    AvgFsizeRmm = ws["N26"].value
+    Endometriummm = ws["O26"].value
+    Age = ws["P26"].value
+    Hairgrowth = ws["Q26"].value
+    SkinDarkening = ws["R26"].value
+
+    makeprediction = model.predict([[CycleRI, FSHmIUmL, LHmIUmL,
+                                    AMHngmL, PulseRateBPM, PRGngmL, RBSmgdl,
+                                    BP_SystolicmmHg, BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm,
+                                    Endometriummm, Age, Hairgrowth, SkinDarkening]])
+
+    output = round(makeprediction[0], 2)
+
+    return(output)
 
 
 @app.route("/tool", methods=["GET", "POST"])
@@ -38,52 +57,9 @@ def tool():
 
     if request.method == "POST":
         if request.files:
+
             excel = request.files["input"]
-
-            if excel.filename == "":
-                print("Excel file must have a filename")
-                return redirect(request.url)
-
-            if not allowed_excel(excel.filename):
-                print("That excel extension is not allowed")
-                return redirect(request.url)
-
-            else:
-                filename = secure_filename(excel.filename)
-
-                excel.save(os.path.join(app.config["EXCEL_UPLOADS"], filename))
-
-            print("excel save")
-
-            wb = load_workbook(os.path.join(app.config["EXCEL_UPLOADS"], filename))
-
-            ws = wb.active
-
-            print(ws["D26"].value)
-
-            CycleRI = ws["D26"].value
-            FSHmIUmL = ws["E26"].value
-            LHmIUmL = ws["F26"].value
-            AMHngmL = ws["G26"].value
-            PulseRateBPM = ws["H26"].value
-            PRGngmL = ws["I26"].value
-            RBSmgdl = ws["J26"].value
-            BP_SystolicmmHg = ws["K26"].value
-            BP_DiastolicmmHg = ws["L26"].value
-            AvgFsizeLmm = ws["M26"].value
-            AvgFsizeRmm = ws["N26"].value
-            Endometriummm = ws["O26"].value
-            Age = ws["P26"].value
-            Hairgrowth = ws["Q26"].value
-            SkinDarkening = ws["R26"].value
-
-            makeprediction = model.predict([[CycleRI, FSHmIUmL, LHmIUmL,
-                                            AMHngmL, PulseRateBPM, PRGngmL, RBSmgdl,
-                                            BP_SystolicmmHg, BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm,
-                                            Endometriummm, Age, Hairgrowth, SkinDarkening]])
-
-            output = round(makeprediction[0], 2)
-
+            output = predict_excel(excel)
             print(output)
 
             session['result'] = int(output)
