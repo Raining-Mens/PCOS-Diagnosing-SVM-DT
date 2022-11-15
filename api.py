@@ -8,7 +8,7 @@ from openpyxl import load_workbook
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-model = pickle.load(open('models\svm-model.pkl', 'rb'))
+
 app.secret_key = "hello"
 
 @app.route("/")
@@ -41,6 +41,14 @@ def predict_excel(excel):
     Age = ws["P26"].value
     Hairgrowth = ws["Q26"].value
     SkinDarkening = ws["R26"].value
+
+    radio = request.form['radio']
+    if radio == "SVM":
+        model = pickle.load(open('models\svm-model.pkl', 'rb'))
+    elif radio == "DT":
+        model = pickle.load(open('models\dt-model.pkl', 'rb'))
+    else:
+        redirect(url_for("tool"))
 
     makeprediction = model.predict([[CycleRI, FSHmIUmL, LHmIUmL,
                                     AMHngmL, PulseRateBPM, PRGngmL, RBSmgdl,
