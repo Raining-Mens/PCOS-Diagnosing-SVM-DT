@@ -61,11 +61,11 @@ def tool():
             excel = request.files["input"]
             output = predict_excel(excel)
             print(output)
-
             session['result'] = int(output)
-
             return redirect(url_for("result"))
     else:    
+        if "result" in session:
+            return redirect(url_for("result"))
         return render_template("tool.html")
 
 
@@ -76,6 +76,12 @@ def result():
         return f"<h1>{result}</h1>"
     else:
         return redirect(url_for("tool"))
+
+
+@app.route("/pop")
+def pop():
+    session.pop("result", None)
+    return redirect(url_for("tool"))
 
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
