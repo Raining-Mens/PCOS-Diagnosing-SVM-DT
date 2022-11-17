@@ -1,11 +1,8 @@
 from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import pickle
-import os
-import pandas as pd
 from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 
-from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
