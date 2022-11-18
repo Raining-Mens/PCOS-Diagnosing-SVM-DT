@@ -3,7 +3,6 @@ import pickle
 from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 
-
 app = Flask(__name__)
 
 app.secret_key = "hello"
@@ -12,32 +11,29 @@ app.secret_key = "hello"
 def home():
     return render_template("index.html")
 
-
 app.config["EXCEL_UPLOADS"] = "./static/assets/uploads"
 app.config["ALLOWED_EXCEL_EXTENSIONS"] = ["XLSX", "CSV", "XLS"]
-
-
 
 def predict_excel(excel):
     wb = load_workbook(excel)
 
     ws = wb.active
 
-    CycleRI = ws["D26"].value
-    FSHmIUmL = ws["E26"].value
-    LHmIUmL = ws["F26"].value
-    AMHngmL = ws["G26"].value
-    PulseRateBPM = ws["H26"].value
-    PRGngmL = ws["I26"].value
-    RBSmgdl = ws["J26"].value
-    BP_SystolicmmHg = ws["K26"].value
-    BP_DiastolicmmHg = ws["L26"].value
-    AvgFsizeLmm = ws["M26"].value
-    AvgFsizeRmm = ws["N26"].value
-    Endometriummm = ws["O26"].value
-    Age = ws["P26"].value
-    Hairgrowth = ws["Q26"].value
-    SkinDarkening = ws["R26"].value
+    Age = ws["B2"].value
+    Hairgrowth = ws["I2"].value
+    SkinDarkening = ws["J2"].value
+    PulseRateBPM = ws["Q2"].value
+    CycleRI = ws["T2"].value
+    FSHmIUmL = ws["AA2"].value
+    LHmIUmL = ws["AB2"].value
+    AMHngmL = ws["AE2"].value
+    PRGngmL = ws["AH2"].value
+    RBSmgdl = ws["AI2"].value
+    BP_SystolicmmHg = ws["AJ2"].value
+    BP_DiastolicmmHg = ws["AK2"].value
+    AvgFsizeLmm = ws["AN2"].value
+    AvgFsizeRmm = ws["AO2"].value
+    Endometriummm = ws["AP2"].value
 
     radio = request.form['radio']
     if radio == "SVM":
@@ -47,10 +43,10 @@ def predict_excel(excel):
     else:
         redirect(url_for("tool"))
 
-    makeprediction = model.predict([[CycleRI, FSHmIUmL, LHmIUmL,
-                                    AMHngmL, PulseRateBPM, PRGngmL, RBSmgdl,
-                                    BP_SystolicmmHg, BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm,
-                                    Endometriummm, Age, Hairgrowth, SkinDarkening]])
+    makeprediction = model.predict([[Age, Hairgrowth, SkinDarkening,
+                                    PulseRateBPM, CycleRI, FSHmIUmL, LHmIUmL,
+                                    AMHngmL, PRGngmL, RBSmgdl, BP_SystolicmmHg,
+                                    BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm, Endometriummm]])
 
     output = round(makeprediction[0], 2)
 
@@ -82,40 +78,10 @@ def result():
     else:
         return redirect(url_for("tool"))
 
-
 @app.route("/pop")
 def pop():
     session.pop("result", None)
     return redirect(url_for("tool"))
-
-@app.route("/predict", methods=["GET", "POST"])
-def predict():
-    
-    CycleRI = request.args.get('Cycle(R/I)')
-    FSHmIUmL = request.args.get('FSH(mIU/mL)')
-    LHmIUmL = request.args.get('LH(mIU/mL)')
-    AMHngmL = request.args.get('AMH(ng/mL)')
-    PulseRateBPM = request.args.get('Pulse rate(bpm)')
-    PRGngmL = request.args.get('PRG(ng/mL)')
-    RBSmgdl = request.args.get('RBS(mg/dl)')
-    BP_SystolicmmHg = request.args.get('BP _Systolic (mmHg)')
-    BP_DiastolicmmHg = request.args.get('BP _Diastolic (mmHg)')
-    AvgFsizeLmm = request.args.get('Avg. F size (L) (mm)')
-    AvgFsizeRmm = request.args.get('Avg. F size (R) (mm)')
-    Endometriummm = request.args.get('Endometrium (mm)')
-    Age = request.args.get('Age (yrs)')
-    Hairgrowth = request.args.get('hair growth(Y/N)')
-    SkinDarkening = request.args.get('Skin darkening (Y/N)')
-
-    makeprediction = model.predict([[CycleRI, FSHmIUmL, LHmIUmL,
-                                     AMHngmL, PulseRateBPM, PRGngmL, RBSmgdl,
-                                     BP_SystolicmmHg, BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm,
-                                     Endometriummm, Age, Hairgrowth, SkinDarkening]])
-
-    output = round(makeprediction[0], 2)
-
-    return jsonify({'PCOS:': output})
-
 
 if __name__ == "__main__":
     app.run(debug=True)
