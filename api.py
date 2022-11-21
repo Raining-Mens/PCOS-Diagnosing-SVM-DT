@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify, redirect, url_for, render_template, s
 import pickle
 from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
 
@@ -52,14 +54,38 @@ def predict_excel(excel):
 
     return(output)
 
+def allowed_excel(filename):
+
+    if not "." in filename:
+        return False
+
+    ext = filename.rsplit(".", 1)[1]
+
+    if ext.upper() in app.config["ALLOWED_EXCEL_EXTENSIONS"]:
+        return True
+    else:
+        return False
 
 @app.route("/tool", methods=["GET", "POST"])
 def tool():
 
     if request.method == "POST":
         if request.files:
-
             excel = request.files["input"]
+
+            if excel.filename == "":
+                print("Excel file must have a filename")
+                return redirect(request.url)
+
+            if not allowed_excel(excel.filename):
+                print("That excel extension is not allowed")
+                return redirect(request.url)
+
+            else:
+                filename = secure_filename(excel.filename)
+
+                excel.save(os.path.join(app.config["EXCEL_UPLOADS"], filename))
+
             output = predict_excel(excel)
             print(output)
             session['result'] = int(output)
