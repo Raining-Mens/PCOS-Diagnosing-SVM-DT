@@ -21,6 +21,7 @@ def predict_excel(excel):
 
     ws = wb.active
 
+    PatID = ws["A2"].value
     Age = ws["B2"].value
     Hairgrowth = ws["I2"].value
     SkinDarkening = ws["J2"].value
@@ -37,11 +38,20 @@ def predict_excel(excel):
     AvgFsizeRmm = ws["AO2"].value
     Endometriummm = ws["AP2"].value
 
+    session["PatID"] = PatID
+    session["Age"] = Age
+    session["Hairgrowth"] = Hairgrowth
+    session["CycleRI"] = CycleRI
+    session["AvgFsizeLmm"] = AvgFsizeLmm
+    session["AvgFsizeRmm"] = AvgFsizeRmm
+
     radio = request.form['radio']
     if radio == "SVM":
         model = pickle.load(open('models\svm-model.pkl', 'rb'))
+        session['model'] = "SVM"
     elif radio == "DT":
         model = pickle.load(open('models\dt-model.pkl', 'rb'))
+        session['model'] = "DT"
     else:
         redirect(url_for("tool"))
 
@@ -68,7 +78,8 @@ def allowed_excel(filename):
 
 @app.route("/tool", methods=["GET", "POST"])
 def tool():
-
+    session.pop("result", None)
+    session.pop("model", None)
     if request.method == "POST":
         if request.files:
             excel = request.files["input"]
@@ -89,24 +100,41 @@ def tool():
             output = predict_excel(excel)
             print(output)
             session['result'] = int(output)
+            
             return redirect(url_for("result"))
     else:    
         if "result" in session:
-            return redirect(url_for("result"))
-        return render_template("tool.html")
+            return redirect(url_for("pop"))
+    return render_template("tool.html")
 
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
     if "result" in session:
         result = session["result"]
-        return f"<h1>{result}</h1>"
+        model = session["model"]
+        PatID = session["PatID"]
+        Age = session["Age"]
+        Hairgrowth = session["Hairgrowth"]
+        CycleRI = session["CycleRI"]
+        AvgFsizeLmm = session["AvgFsizeLmm"]
+        AvgFsizeRmm = session["AvgFsizeRmm"]
+        if model == "SVM":
+            model_name = "SVM"
+        else:
+            model_name = "DT"
+
+        if result == 1:
+            return render_template("results.html", RESULTS="POSITIVE", MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
+        else:
+            return render_template("results.html", RESULTS="NEGATIVE", MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
     else:
         return redirect(url_for("tool"))
 
 @app.route("/pop")
 def pop():
     session.pop("result", None)
+    session.pop("model", None)
     return redirect(url_for("tool"))
 
 if __name__ == "__main__":
