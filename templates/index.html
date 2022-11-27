@@ -12,9 +12,6 @@
     <!-- LANDING -->
     <main id="home">
         <div class="container-fluid">
-            <div class="row-2">
-                <button class="howBtn" id="myBtn">?</button>
-            </div>
             <div class="row">
                 <div class="col">
                     <img src="{{ url_for('static', filename='assets/ovary.jpg') }}" class="img-fluid" alt="ovary img" />
@@ -33,21 +30,21 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h1>HOW TO GUIDE</h1>
-                    <p>1. Download or follow the Input Data Excel Template. <a href="/static/assets/PCOS_without_infertility_normalized.xlsx" download>Download</a></p>
-                    <p>2. Upload the excel file to upload box.</p>
-                    <p>3. Select which model to use. It's either Support Vector Machine  (SVM) or Decision Tree (DT).</p>
-                    <p>4. Click start to begin evaluation.</p>
+                    <p>1. Download or follow the Input Data Excel Template. <a href="/static/assets/PCOS_without_infertility_normalized.xlsx" download>Download</a>
+                    <br>2. Upload the excel file to upload box.
+                    <br>3. Select which model to use. It's either Support Vector Machine  (SVM) or Decision Tree (DT).
+                    <br>4. Click start to begin evaluation.</p>
 
                     <hr style="height: 5px; color: #ff0800;">
 
                     <p>It will then show the contents of the file.</p>
-                    <p1>Placeholder</p1>
+                    <p2>Placeholder</p2>
 
                     <hr style="height: 5px; color: #ff0800;">
                     
                     <div class="modal-row">
                         <div class="modal-col1">
-                            <p>After the evaluation, it will show the results on bottom whether it is INFECTED or NOTINFECTED.<br>Along with the details of which model has been used and some details about the patient's data.</p>
+                            <p>After the evaluation, it will show the results on bottom whether it is <p1>INFECTED</p1> or <p1>NOT INFECTED</p1>.<br>Along with the details of which model has been used and some details about the patient's data.</p>
                         </div>
                         <div class="modal-col2">
                             <img src="{{ url_for('static', filename='assets/placeholder.png') }}" class="img-fluid" alt="placeholder img" />
