@@ -6,11 +6,11 @@ body, html {
     font-family: poppins;
     line-height: 1;
     height: max-content;
-    background-color: #ededed;
+    background-color: #fff;
 }
 
 .main-home {
-    background-color:#ededed;
+    background-color:#fff;
     height: max-content;
 }
 
@@ -18,7 +18,7 @@ body, html {
     z-index: auto;
     position: relative;
     align-items: center;
-    background-color:#ededed;
+    background-color:#fff;
     padding: 50px;
 }
 
@@ -26,7 +26,34 @@ body, html {
     background-color: #fa7470;
     z-index: auto;
     position: relative;
-    height: 40px;
+}
+
+.up-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10;
+}
+
+.up-nav ul img {
+    width: 30px;
+    height: 30px;
+}
+
+.up-nav ul li {
+    display: inline-block;
+}
+
+.up-nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    font-size: medium;
+    font-weight: 700;
+    color: #fff;
+}
+
+.up-nav ul li a:hover {
+    background-color: brown;
 }
 
 .header-title p {
@@ -220,13 +247,23 @@ body, html {
 }
 
 .modal-content p {
+    line-height: 1.7em;
+}
+
+.modal-content hr {
+    margin-top: -2px;
+}
+
+.modal-content p1 {
     font-weight: bold;
+    color: #fa7470;
 }
 
 .modal-content p a {
     background-color: #fa7470;
     color: white;
     text-decoration: none;
+    font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 3px;
@@ -243,7 +280,7 @@ body, html {
     padding-bottom: 3px;
 }
 
-.modal-content p1 {
+.modal-content p2 {
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -251,7 +288,7 @@ body, html {
     border-style: dashed;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .modal-row {
@@ -260,8 +297,8 @@ body, html {
 }
 
 .modal-col1 {
-    text-align: justify;
     margin-right: 50px;
+    text-align: justify;
 }
 
 .modal-col2 img {
