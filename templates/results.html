@@ -8,28 +8,34 @@
 
 <body>
     {% block content %}
-    <form class="login">
+    <div class="login">
         <div class="rectangle"></div>
         <div class="bar1"></div>
         <div class="bar2"></div>
-        <button href="{{ url_for('tool') }}">Back</button>
+
+        <form class="button" action="/tool" method="POST">
+        <button href="{{ url_for('tool') }}" type="button">Back</button>
+        </form>
+
         <h3>DIAGNOSIS:</h3>
         <div class="diagnosis">
             <h1 style="font-size:50px">{{RESULTS}}</h1>
         </div>
+
         <div class="model">
             <h4>{{MODEL}}</h4>
         </div>
         <h4>MODEL:</h4>
 
-        <h5>Patient ID: </h5><span>{{ID}}</span><br>
-        <h5>Age: </h5><span>{{AGE}}</span><br>
-        <h5>Hairgrowth: </h5><span>{{HAIR}}</span><br>
-        <h5>Cycle(R/I): </h5><span>{{CYC}}</span><br>
-        <h5>Avg. Follicle Size (L): </h5><span>{{AFL}}</span><br>
-        <h5>Avg. Follicle Size (R): </h5><span>{{AFR}}</span>
-
-    </form>
+        <div class="resulttable">
+            <h5>Patient ID: <span>{{ID}}</span></h5><br>
+            <h5>Age: <span>{{AGE}}</span></h5><br>
+            <h5>Hairgrowth: <span>{{HAIR}}</span></h5><br>
+            <h5>Cycle(R/I): <span>{{CYC}}</span></h5><br>
+            <h5>Avg. Follicle Size (L): <span>{{AFL}}</span></h5><br>
+            <h5>Avg. Follicle Size (R): <span>{{AFR}}</span></h5>
+        </div>
+    </div>
     {% endblock %}
 </body>
 
