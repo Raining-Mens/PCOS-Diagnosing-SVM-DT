@@ -28,7 +28,7 @@
   z-index: -1;
 }
 
-.login > input {
+.input {
   font-family: "Asap", sans-serif;
   display: block;
   border-radius: 5px;
@@ -40,7 +40,7 @@
   margin: 15px -10px;
 }
 
-.login > button {
+.button {
   position: absolute;
   right: 30px;
   bottom: 100px;
@@ -59,7 +59,7 @@
   transition: background-color 300ms;
 }
 
-.login > button:hover {
+.button:hover {
   background-color: #f24353;
 }
 
@@ -72,7 +72,7 @@
 
 .bar1 {
   border-left: 4px solid #f45b69;
-  height: 180px;
+  height: 190px;
   position: absolute;
   bottom: 20px;
   left: 250px;
@@ -83,7 +83,7 @@
 
 .bar2 {
   border-left: 4px solid #f45b69;
-  height: 180px;
+  height: 190px;
   position: absolute;
   bottom: 20px;
   left: 600px;
@@ -122,30 +122,12 @@
   left: 10px;
 }
 
-.login > h5 {
+.resulttable {
   font-family: Arial, Helvetica, sans-serif;
-  padding: 10px;
-  padding-left: 5px;
-  padding-right: 86.8px;
-  width: 25%;
-  height: 25%;
-  text-align: left;
-  line-height: 1.5;
-  position: absolute;
-  top: 56.8%;
-  right: 44%;
+  position: relative;
+  line-height: 0.1;
+  bottom: 1%;
+  left: 30%;
 }
 
-.results {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 10px;
-  padding-left: 10px;
-  padding-right: 86.8px;
-  width: 20%;
-  text-align: left;
-  line-height: 1,5;
-  position: absolute;
-  top: 56.8%;
-  right: 20%;
-}
 
