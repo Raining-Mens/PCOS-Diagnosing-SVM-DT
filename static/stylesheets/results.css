@@ -46,6 +46,25 @@ button.buttontable:hover {
   background-color: #555;
 }
 
+.tool-output1 {
+  background-color: #d6d6d6;
+  position: absolute;
+  margin-top: 20px;
+  padding: 20px;
+  border-style: dashed;
+  border-color: #919090;
+  height: 200px;
+  width: 740px;
+  text-align: center;
+}
+
+.tbl-prev1 {
+  position: absolute;
+  overflow: scroll;
+  height: 200px;
+  width: 740px;
+}
+
 .bar1 {
   border-left: 4px solid #f45b69;
   height: 190px;
