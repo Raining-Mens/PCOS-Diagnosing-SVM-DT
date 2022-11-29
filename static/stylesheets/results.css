@@ -16,31 +16,7 @@
   box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
 }
 
-.login::before, .login::after {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-top-left-radius: 40%;
-  border-top-right-radius: 45%;
-  border-bottom-left-radius: 35%;
-  border-bottom-right-radius: 40%;
-  z-index: -1;
-}
-
-.input {
-  font-family: "Asap", sans-serif;
-  display: block;
-  border-radius: 5px;
-  font-size: 16px;
-  background: white;
-  width: 100%;
-  border: 0;
-  padding: 10px 10px;
-  margin: 15px -10px;
-}
-
-.button {
+button.buttontable {
   position: absolute;
   right: 30px;
   bottom: 100px;
@@ -59,7 +35,7 @@
   transition: background-color 300ms;
 }
 
-.button:hover {
+button.buttontable:hover {
   background-color: #f24353;
 }
 
@@ -68,6 +44,25 @@
   width: 740px;
   margin-bottom: 50px;
   background-color: #555;
+}
+
+.tool-output1 {
+  background-color: #d6d6d6;
+  position: absolute;
+  margin-top: 20px;
+  padding: 20px;
+  border-style: dashed;
+  border-color: #919090;
+  height: 200px;
+  width: 740px;
+  text-align: center;
+}
+
+.tbl-prev1 {
+  position: absolute;
+  overflow-x: scroll;
+  width: 700px;
+  top: 5px;
 }
 
 .bar1 {
@@ -124,10 +119,10 @@
 
 .resulttable {
   font-family: Arial, Helvetica, sans-serif;
-  position: relative;
+  position: absolute;
   line-height: 0.1;
-  bottom: 1%;
-  left: 30%;
+  bottom: 0.1%;
+  left: 32%;
 }
 
 
