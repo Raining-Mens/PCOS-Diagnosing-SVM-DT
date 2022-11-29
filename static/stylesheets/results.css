@@ -60,9 +60,9 @@ button.buttontable:hover {
 
 .tbl-prev1 {
   position: absolute;
-  overflow: scroll;
-  height: 200px;
-  width: 740px;
+  overflow-x: scroll;
+  width: 700px;
+  top: 5px;
 }
 
 .bar1 {
