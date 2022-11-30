@@ -98,7 +98,6 @@ def tool():
                 excel.save(os.path.join(app.config["EXCEL_UPLOADS"], filename))
 
             output = predict_excel(excel)
-            print(output)
             session['result'] = int(output)
             
             return redirect(url_for("result"))
