@@ -9,9 +9,6 @@
 <body>
     {% block content %}
     <div class="login">
-
-
-
         
         <div class="tool-output1">
             <div class="tbl-prev1"> 
@@ -31,7 +28,11 @@
         <div class="bar2"></div>
 
         <form class="buttontable" action="/tool" method="POST">
-        <button class="buttontable" href="{{ url_for('tool') }}">Back</button>
+            <button class="buttontable" href="{{ url_for('tool') }}">Back</button>
+        </form>
+
+        <form class="aboutbutton">
+            <button class="aboutbutton">About</button>
         </form>
 
         <h3>DIAGNOSIS:</h3>
@@ -55,9 +56,6 @@
             <h5>Avg. Follicle Size (R): <span>{{AFR}}</span></h5>
         </div>
     </div>
-    <script>
-      
-    </script>
     {% endblock %}
 </body>
 

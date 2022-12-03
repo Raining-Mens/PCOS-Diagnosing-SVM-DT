@@ -19,7 +19,7 @@
 button.buttontable {
   position: absolute;
   right: 30px;
-  bottom: 100px;
+  bottom: 120px;
   font-family: "Asap", sans-serif;
   cursor: pointer;
   color: #fff;
@@ -39,19 +39,35 @@ button.buttontable:hover {
   background-color: #f24353;
 }
 
-.rectangle {
-  height: 200px;
-  width: 740px;
-  margin-bottom: 50px;
-  background-color: #555;
+button.aboutbutton {
+  position: absolute;
+  right: 30px;
+  bottom: 60px;
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 150px;
+  border: 10px;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  border-radius: 5px;
+  background-color: #f45b69;
+  transition: background-color 300ms;
+}
+
+button.aboutbutton:hover {
+  background-color: #f24353;
 }
 
 .tool-output1 {
   background-color: #d6d6d6;
   position: absolute;
+  border-style: inset;
   margin-top: 20px;
   padding: 20px;
-  border-style: dashed;
   border-color: #919090;
   height: 200px;
   width: 740px;
