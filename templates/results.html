@@ -9,101 +9,18 @@
 <body>
     {% block content %}
     <div class="login">
-
-
-
         
         <div class="tool-output1">
             <div class="tbl-prev1"> 
-                <table class="table table-bordered table-hover table-condensed">
-                    <thead><tr><th title="Field #1">Patient File No.</th>
-                    <th title="Field #2">Age (yrs)</th>
-                    <th title="Field #3">Weight (Kg)</th>
-                    <th title="Field #4">Height(Cm)</th>
-                    <th title="Field #5">Hip(inch)</th>
-                    <th title="Field #6">Waist(inch)</th>
-                    <th title="Field #7">Waist:Hip Ratio</th>
-                    <th title="Field #8">Weight gain(Y/N)</th>
-                    <th title="Field #9">hair growth(Y/N)</th>
-                    <th title="Field #10">Skin darkening (Y/N)</th>
-                    <th title="Field #11">Hair loss(Y/N)</th>
-                    <th title="Field #12">Pimples(Y/N)</th>
-                    <th title="Field #13">Fast food (Y/N)</th>
-                    <th title="Field #14">Reg.Exercise(Y/N)</th>
-                    <th title="Field #15">BMI</th>
-                    <th title="Field #16">Blood Group</th>
-                    <th title="Field #17">Pulse rate(bpm)</th>
-                    <th title="Field #18">RR (breaths/min)</th>
-                    <th title="Field #19">Hb(g/dl)</th>
-                    <th title="Field #20">Cycle(R/I)</th>
-                    <th title="Field #21">Cycle length(days)</th>
-                    <th title="Field #22">Marraige Status (Yrs)</th>
-                    <th title="Field #23">Pregnant(Y/N)</th>
-                    <th title="Field #24">No. of aborptions</th>
-                    <th title="Field #25">I   beta-HCG(mIU/mL)</th>
-                    <th title="Field #26">II    beta-HCG(mIU/mL)</th>
-                    <th title="Field #27">FSH(mIU/mL)</th>
-                    <th title="Field #28">LH(mIU/mL)</th>
-                    <th title="Field #29">FSH/LH</th>
-                    <th title="Field #30">TSH (mIU/L)</th>
-                    <th title="Field #31">AMH(ng/mL)</th>
-                    <th title="Field #32">PRL(ng/mL)</th>
-                    <th title="Field #33">Vit D3 (ng/mL)</th>
-                    <th title="Field #34">PRG(ng/mL)</th>
-                    <th title="Field #35">RBS(mg/dl)</th>
-                    <th title="Field #36">BP _Systolic (mmHg)</th>
-                    <th title="Field #37">BP _Diastolic (mmHg)</th>
-                    <th title="Field #38">Follicle No. (L)</th>
-                    <th title="Field #39">Follicle No. (R)</th>
-                    <th title="Field #40">Avg. F size (L) (mm)</th>
-                    <th title="Field #41">Avg. F size (R) (mm)</th>
-                    <th title="Field #42">Endometrium (mm)</th>
-                    </tr></thead>
-                    <tbody><tr>
-                    <td align="right">{{ID}}</td>
-                    <td align="right">{{AGE}}</td>
-                    <td align="right">68</td>
-                    <td align="right">172</td>
-                    <td align="right">42</td>
-                    <td align="right">34</td>
-                    <td align="right">0.81</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td align="right">23.0</td>
-                    <td align="right">15</td>
-                    <td align="right">72</td>
-                    <td align="right">16</td>
-                    <td align="right">10.8</td>
-                    <td align="right">4</td>
-                    <td align="right">10</td>
-                    <td align="right">4</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td align="right">77.6</td>
-                    <td align="right">1.99</td>
-                    <td align="right">4.42</td>
-                    <td align="right">5.48</td>
-                    <td align="right">0.81</td>
-                    <td align="right">3.26</td>
-                    <td align="right">3.2</td>
-                    <td align="right">27.65</td>
-                    <td align="right">23.114</td>
-                    <td align="right">0.39</td>
-                    <td align="right">70</td>
-                    <td align="right">110</td>
-                    <td align="right">70</td>
-                    <td align="right">22</td>
-                    <td align="right">18</td>
-                    <td align="right">12</td>
-                    <td align="right">13</td>
-                    <td align="right">11</td>
+                <table id="result-prev">
+                    {% for row in range(1, EXCEL.max_row + 1) %}
+                    <tr>
+                        {%for col in range(1, EXCEL.max_column + 1): %}
+                        <td>{{EXCEL.cell(row, col).value}}</td>
+                        {% endfor %}
                     </tr>
-                    </tbody></table>
+                    {% endfor %}
+                </table>
             </div>
         </div>
 
@@ -111,12 +28,18 @@
         <div class="bar2"></div>
 
         <form class="buttontable" action="/tool" method="POST">
-        <button class="buttontable" href="{{ url_for('tool') }}">Back</button>
+            <button class="buttontable" href="{{ url_for('tool') }}">Back</button>
+        </form>
+
+        <form class="aboutbutton">
+            <button class="aboutbutton">About</button>
         </form>
 
         <h3>DIAGNOSIS:</h3>
         <div class="diagnosis">
-            <h1 style="font-size:50px">{{RESULTS}}</h1>
+            <h1 style="font-size:50px">
+                <strong>{{RESULTS}}</strong>
+            </h1>
         </div>
 
         <div class="model">
@@ -133,9 +56,6 @@
             <h5>Avg. Follicle Size (R): <span>{{AFR}}</span></h5>
         </div>
     </div>
-    <script>
-      
-    </script>
     {% endblock %}
 </body>
 
