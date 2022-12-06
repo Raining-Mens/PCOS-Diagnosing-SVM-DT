@@ -109,10 +109,6 @@ def tool():
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-
-    book = load_workbook("static\\assets\\uploads\\PCOS_Template.xlsx")
-    sheet = book.active
-
     if "result" in session:
         result = session["result"]
         model = session["model"]
@@ -128,9 +124,9 @@ def result():
             model_name = "DT"
 
         if result == 1:
-            return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
+            return render_template("results.html", RESULTS="POSITIVE", MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
         else:
-            return render_template("results.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
+            return render_template("results.html", RESULTS="NEGATIVE", MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
     else:
         return redirect(url_for("tool"))
 
