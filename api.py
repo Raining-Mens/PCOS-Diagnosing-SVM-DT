@@ -134,6 +134,10 @@ def result():
     else:
         return redirect(url_for("tool"))
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.route("/pop")
 def pop():
     session.pop("result", None)
