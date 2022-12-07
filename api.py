@@ -112,7 +112,7 @@ def result():
 
     book = load_workbook("static\\assets\\uploads\\PCOS_Template.xlsx")
     sheet = book.active
-
+    
     if "result" in session:
         result = session["result"]
         model = session["model"]

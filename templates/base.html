@@ -18,14 +18,31 @@
 
 <body>        
     <!-- NAVBAR -->
-    <nav class="up-nav">
-        <ul>
-            <img src="{{ url_for('static', filename='assets/white.png') }}" class="logo" alt="logo img" />
-            <li><a href="/">Home</a></li>
-            <li><a href="tool">Run Application</a></li>
-            <li><a id="myBtn" href="#">How To Guide</a></li>
-        </ul>
-    </nav>
+    <div class="background">
+        <img src="{{ url_for('static', filename='assets/background-pcos1.png') }}" class="img-fluid" alt="ovary img" />  
+        <header>
+            <img src="{{ url_for('static', filename='assets/blue title.png') }}" class="logo" alt="logo img" />
+            <nav class="up-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="tool">Run Application</a></li>
+                    <li><a id="myBtn" href="#">How To Guide</a></li>
+                    <li><a href="about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $(function(){
+            $('a').each(function(){
+                if ($(this).prop('href') == window.location.href) {
+                    $(this).addClass('active'); $(this).parents('li').addClass('active');
+                }
+            });
+        });
+    </script>
     {% block content %}
     
     {% endblock %}
