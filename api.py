@@ -61,10 +61,10 @@ def predict_excel(excel):
 
     radio = request.form['radio']
     if radio == "SVM":
-        model = pickle.load(open('models\svm-model.pkl', 'rb'))
+        model = pickle.load(open('./static/assets/svm-model.pkl', 'rb'))
         session['model'] = "SVM"
     elif radio == "DT":
-        model = pickle.load(open('models\dt-model.pkl', 'rb'))
+        model = pickle.load(open('./static/assets/dt-model.pkl', 'rb'))
         session['model'] = "DT"
     else:
         redirect(url_for("tool"))
