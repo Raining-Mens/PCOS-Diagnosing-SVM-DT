@@ -4,6 +4,7 @@ from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 from werkzeug.utils import secure_filename
 import os
+import git
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ app.secret_key = "hello"
 
 @app.route('/git_update', methods=['POST'])
 def git_update():
-    repo = git.Repo('./orbe')
+    repo = git.Repo('./PCOS-Diagnosing-SVM-DT')
     origin = repo.remotes.origin
     repo.create_head('main',
                      origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
