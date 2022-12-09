@@ -24,7 +24,7 @@ def git_update():
 def home():
     return render_template("index.html")
 
-app.config["EXCEL_UPLOADS"] = "./PCOS-Diagnosing-SVM-DT/static/assets/uploads"
+app.config["EXCEL_UPLOADS"] = "./static/assets/uploads"
 app.config["ALLOWED_EXCEL_EXTENSIONS"] = ["XLSX", "CSV", "XLS"]
 
 def predict_excel(excel):
@@ -58,10 +58,10 @@ def predict_excel(excel):
 
     radio = request.form['radio']
     if radio == "SVM":
-        model = pickle.load(open('./PCOS-Diagnosing-SVM-DT/static/assets/uploads/svm-model.pkl', 'rb'))
+        model = pickle.load(open('./static/assets/svm-model.pkl', 'rb'))
         session['model'] = "SVM"
     elif radio == "DT":
-        model = pickle.load(open('./PCOS-Diagnosing-SVM-DT/static/assets/uploads/dt-model.pkl', 'rb'))
+        model = pickle.load(open('./static/assets/dt-model.pkl', 'rb'))
         session['model'] = "DT"
     else:
         redirect(url_for("tool"))
@@ -120,7 +120,7 @@ def tool():
 @app.route("/result", methods=["GET", "POST"])
 def result():
 
-    book = load_workbook("./PCOS-Diagnosing-SVM-DT/static/assets/uploads/PCOS_Template.xlsx")
+    book = load_workbook("./static/assets/uploads/PCOS_Template.xlsx")
     sheet = book.active
     
     if "result" in session:
