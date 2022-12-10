@@ -122,6 +122,36 @@ def tool():
     return render_template("tool.html")
 
 
+@app.route("/dt", methods=["GET", "POST"])
+def dt():
+    session.pop("result", None)
+    session.pop("model", None)
+    if request.method == "POST":
+        if request.files:
+            excel = request.files["input"]
+
+            if excel.filename == "":
+                print("Excel file must have a filename")
+                return redirect(request.url)
+
+            if not allowed_excel(excel.filename):
+                print("That excel extension is not allowed")
+                return redirect(request.url)
+
+            else:
+                filename = secure_filename(excel.filename)
+                excel.save(os.path.join(my_excel, filename))
+
+            output = predict_excel(excel)
+            session['result'] = int(output)
+            
+            return redirect(url_for("result"))
+    else:    
+        if "result" in session:
+            return redirect(url_for("pop"))
+    return render_template("tool.html")
+
+
 @app.route("/result", methods=["GET", "POST"])
 def result():
 
