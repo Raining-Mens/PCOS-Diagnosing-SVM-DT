@@ -134,6 +134,7 @@ header {
     border-radius: 30px;
     border-width: 0;
     padding: 10px 50px;
+    font-size: medium;
     /* margin-top: 10px;
     margin-left: 8px; */
 }
@@ -152,10 +153,13 @@ header {
     z-index: 4;
     position: relative;
     width: 50%;
-    font-size: 50px;
-    font-weight: bold;
     text-align: center;
     padding: 25px;
+}
+
+.container-cont p {
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .tool-input {
@@ -236,26 +240,26 @@ header {
 
 .start {
     margin-top: 20px;
-    width: 120px;
-    align-self: center;
-    background-color:brown;
-    font-size: 40px;
+    font-family: "Montserrat";
     font-weight: bold;
-    border: 0;
-    border-radius: 5%;
-    color: white;
+    font-size: medium;
+    color: #fff;
+    background-color: #fa7470;
+    border-radius: 30px;
+    border-width: 0;
+    padding: 10px 50px;
 }
 
 .start:hover {
-    margin-top: 20px;
+    /* margin-top: 20px;
     width: 120px;
-    align-self: center;
-    background-color:rgb(162, 103, 103);
-    font-size: 40px;
+    align-self: center; */
+    background-color:#d93d4a;
+    /* font-size: 40px;
     font-weight: bold;
     border: 0;
     border-radius: 5%;
-    color: white;
+    color: white; */
 }
 
 
