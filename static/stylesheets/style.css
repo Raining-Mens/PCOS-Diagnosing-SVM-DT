@@ -119,8 +119,14 @@ header {
     font-weight: 500;
 }
 
-.startBtn {
+.strbtn {
+    display: inline-block;
     position: absolute;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+.startBtn {
     font-family: "Montserrat";
     font-weight: bold;
     color: #fff;
@@ -128,8 +134,8 @@ header {
     border-radius: 30px;
     border-width: 0;
     padding: 10px 50px;
-    margin-top: 10px;
-    margin-left: 8px;
+    /* margin-top: 10px;
+    margin-left: 8px; */
 }
 
 .startBtn:hover {

@@ -32,7 +32,7 @@ app.config["ASSETS"] = "static/assets"
 my_assets = os.path.join(THIS_FOLDER, "static/assets")
 app.config["ALLOWED_EXCEL_EXTENSIONS"] = ["XLSX", "CSV", "XLS"]
 
-def predict_excel(excel):
+def predict_excel_svm(excel):
     wb = load_workbook(excel)
 
     ws = wb.active
@@ -61,15 +61,53 @@ def predict_excel(excel):
     session["AvgFsizeLmm"] = AvgFsizeLmm
     session["AvgFsizeRmm"] = AvgFsizeRmm
 
-    radio = request.form['radio']
-    if radio == "SVM":
-        model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
-        session['model'] = "SVM"
-    elif radio == "DT":
-        model = pickle.load(open(os.path.join(my_assets, "dt-model.pkl"), 'rb'))
-        session['model'] = "DT"
-    else:
-        redirect(url_for("tool"))
+
+    model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
+    session['model'] = "SVM"
+
+
+    makeprediction = model.predict([[Age, Hairgrowth, SkinDarkening,
+                                    PulseRateBPM, CycleRI, FSHmIUmL, LHmIUmL,
+                                    AMHngmL, PRGngmL, RBSmgdl, BP_SystolicmmHg,
+                                    BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm, Endometriummm]])
+
+    output = round(makeprediction[0], 2)
+
+    return(output)
+
+def predict_excel_dt(excel):
+    wb = load_workbook(excel)
+
+    ws = wb.active
+
+    PatID = ws["A2"].value
+    Age = ws["B2"].value
+    Hairgrowth = ws["I2"].value
+    SkinDarkening = ws["J2"].value
+    PulseRateBPM = ws["Q2"].value
+    CycleRI = ws["T2"].value
+    FSHmIUmL = ws["AA2"].value
+    LHmIUmL = ws["AB2"].value
+    AMHngmL = ws["AE2"].value
+    PRGngmL = ws["AH2"].value
+    RBSmgdl = ws["AI2"].value
+    BP_SystolicmmHg = ws["AJ2"].value
+    BP_DiastolicmmHg = ws["AK2"].value
+    AvgFsizeLmm = ws["AN2"].value
+    AvgFsizeRmm = ws["AO2"].value
+    Endometriummm = ws["AP2"].value
+
+    session["PatID"] = PatID
+    session["Age"] = Age
+    session["Hairgrowth"] = Hairgrowth
+    session["CycleRI"] = CycleRI
+    session["AvgFsizeLmm"] = AvgFsizeLmm
+    session["AvgFsizeRmm"] = AvgFsizeRmm
+
+
+    model = pickle.load(open(os.path.join(my_assets, "dt-model.pkl"), 'rb'))
+    session['model'] = "DT"
+
 
     makeprediction = model.predict([[Age, Hairgrowth, SkinDarkening,
                                     PulseRateBPM, CycleRI, FSHmIUmL, LHmIUmL,
@@ -112,7 +150,7 @@ def tool():
                 filename = secure_filename(excel.filename)
                 excel.save(os.path.join(my_excel, filename))
 
-            output = predict_excel(excel)
+            output = predict_excel_svm(excel)
             session['result'] = int(output)
             
             return redirect(url_for("result"))
@@ -142,14 +180,14 @@ def dt():
                 filename = secure_filename(excel.filename)
                 excel.save(os.path.join(my_excel, filename))
 
-            output = predict_excel(excel)
+            output = predict_excel_dt(excel)
             session['result'] = int(output)
             
             return redirect(url_for("result"))
     else:    
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("tool.html")
+    return render_template("dt.html")
 
 
 @app.route("/result", methods=["GET", "POST"])
