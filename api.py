@@ -24,7 +24,12 @@ def git_update():
 def home():
     return render_template("index.html")
 
-app.config["EXCEL_UPLOADS"] = "./static/assets/uploads"
+
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+app.config["EXCEL_UPLOADS"] = "\\static\\assets\\uploads"
+my_excel = os.path.join(THIS_FOLDER, "\\static\\assets\\uploads")
+app.config["ASSETS"] = "\\static\\assets"
+my_assets = os.path.join(THIS_FOLDER, "\\static\\assets")
 app.config["ALLOWED_EXCEL_EXTENSIONS"] = ["XLSX", "CSV", "XLS"]
 
 def predict_excel(excel):
@@ -58,10 +63,10 @@ def predict_excel(excel):
 
     radio = request.form['radio']
     if radio == "SVM":
-        model = pickle.load(open('./static/assets/svm-model.pkl', 'rb'))
+        model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
         session['model'] = "SVM"
     elif radio == "DT":
-        model = pickle.load(open('./static/assets/dt-model.pkl', 'rb'))
+        model = pickle.load(open(os.path.join(my_assets, "dt-model.pkl"), 'rb'))
         session['model'] = "DT"
     else:
         redirect(url_for("tool"))
@@ -105,7 +110,7 @@ def tool():
 
             else:
                 filename = secure_filename(excel.filename)
-                excel.save(os.path.join(app.config["EXCEL_UPLOADS"], filename))
+                excel.save(os.path.join(my_excel, filename))
 
             output = predict_excel(excel)
             session['result'] = int(output)
@@ -120,7 +125,7 @@ def tool():
 @app.route("/result", methods=["GET", "POST"])
 def result():
 
-    book = load_workbook("./static/assets/uploads/PCOS_Template.xlsx")
+    book = load_workbook(open(os.path.join(my_excel, "PCOS_Template.xlsx"), 'rb'))
     sheet = book.active
     
     if "result" in session:
