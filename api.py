@@ -26,10 +26,10 @@ def home():
 
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-app.config["EXCEL_UPLOADS"] = "\\static\\assets\\uploads"
-my_excel = os.path.join(THIS_FOLDER, "\\static\\assets\\uploads")
-app.config["ASSETS"] = "\\static\\assets"
-my_assets = os.path.join(THIS_FOLDER, "\\static\\assets")
+app.config["EXCEL_UPLOADS"] = "static/assets/uploads"
+my_excel = os.path.join(THIS_FOLDER, "static/assets/uploads")
+app.config["ASSETS"] = "static/assets"
+my_assets = os.path.join(THIS_FOLDER, "static/assets")
 app.config["ALLOWED_EXCEL_EXTENSIONS"] = ["XLSX", "CSV", "XLS"]
 
 def predict_excel(excel):
