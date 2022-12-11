@@ -1,3 +1,11 @@
+.container-results {
+  z-index: auto;
+  position: relative;
+  background-color:#fff;
+  max-height: max-content;
+  padding: 22%;
+}
+
 .login {
   overflow: hidden;
   outline-color:#fd8a94;

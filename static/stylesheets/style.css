@@ -22,7 +22,7 @@ body, html {
     background-color:#fff;
     max-height: fit-content;
     padding: 50px;
-    padding-bottom: 92px;
+    padding-bottom: 20%;
 }
 
 header {
