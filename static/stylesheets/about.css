@@ -1,0 +1,67 @@
+.container-about {
+    display: flex;
+    position: absolute;
+    background-image: url('/static/assets/background-repeat.png');
+    background-repeat: repeat;
+    background-size: 30%;
+    background-position: center;
+    padding-bottom: 50px;
+}
+
+.backg-about {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    margin: 20px 50px 0px 50px;
+    background-color: white;
+    opacity: 0.9;
+}
+
+.title h1 {
+    font-family: "Montserrat";
+    font-weight: 700;
+    color: #fa7470;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.title .pcos {
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: center;
+    margin: 20px 100px 70px 100px;
+}
+
+.body {
+    flex-wrap: wrap-reverse;
+}
+.body h2 {
+    font-family: "Montserrat";
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.adasyn-row {
+    display: flex;
+    align-content: space-around;
+    margin-bottom: 50px;
+}
+
+.adasyn {
+    font-family: "Montserrat";
+    font-weight: 500;
+    margin: 20px 20px 0px 50px;
+    text-align: justify;
+    text-indent: 1in;
+}
+
+.adasyn-row .dt-balance {
+    width: 50%;
+    padding-right: 10px;
+}
+
+.dt-cfm {
+    width: 60%;
+    display: block;
+    margin: 20px auto 50px auto;
+}
