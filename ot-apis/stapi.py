@@ -1,7 +1,7 @@
 import pickle
 import streamlit as st
 
-model = pickle.load(open('C:/Users/krisJ/Desktop/FastAPI Deploy/model-svm.pkl', 'rb'))
+model = pickle.load(open('C:/Users/krisJ/Desktop/PCOS-Diagnosing-SVM-DT/static/assets/svm-model.pkl', 'rb'))
 
 def main():
     st.title('PCOS Diagnosing Tool')
