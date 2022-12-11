@@ -65,3 +65,26 @@
     display: block;
     margin: 20px auto 50px auto;
 }
+
+.team-heading{
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.member-pic{
+    height: 400px;
+    width: 380px;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px auto 50px auto;
+}
+
+div.pic-cont{
+    text-align: center;
+    padding: 10px 20px;
+}
+

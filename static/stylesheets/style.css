@@ -30,9 +30,11 @@ header {
     padding: 10;
 }
 
-.logo {
+.logo{
     width: 140px;
     height: 40px;
+    position: relative;
+    right: 850%;
     margin-right: auto;
 }
 
