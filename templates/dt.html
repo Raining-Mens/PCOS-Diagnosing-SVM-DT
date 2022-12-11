@@ -4,96 +4,100 @@
 
 <head>
     {% block title %}OvYou · Decision Tree{% endblock %}
-    
+
 </head>
 
 <body>
     {% block content %}
     <!-- Tool -->
-    <form action="/dt" method="POST" enctype="multipart/form-data">
-        <div class="container-main row">
-            <div class="container-io col m-2">
-                <div class="file-loading">
-                    <!-- <form action="/tool" method="POST" enctype="multipart/form-data"> -->
+    <div class="main-cont-tool">
+        <form action="/dt" method="POST" enctype="multipart/form-data">
+            <div class="container-main row">
+                <div class="container-io col m-2">
+                    <div class="file-loading">
+                        <!-- <form action="/tool" method="POST" enctype="multipart/form-data"> -->
                         <div class="tool-input">
                             <input type="file" id="input" name="input"
                                 accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                 onClick="preview(input)">
                             <!-- <input type="file" id="excel" name="excel"> -->
-
                         </div>
                         <!-- <button type="submit" class="start">Start</button> -->
-                    <!-- </form> -->
-                </div>
-                <div class="tool-output">
-                    <div class="tbl-prev">
-                        <table id="tbl-data"></table>
+                        <!-- </form> -->
                     </div>
+                    <div id="tooloutput">
+                        <div class="tbl-prev">
+                            <table id="tbl-data"></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-cont col m-2">
+                    <div class="cont-cont">
+                        <p>PCOS<br>DIAGNOSING<br>TOOL</p>
+                        <!-- <div class="container-btn">
+                            <label class="control-svm">
+                                SVM<br>
+                                <input type="radio" name="radio" value="SVM"/> 
+                            </label>
+                            <label class="control-dt">
+                                DT<br>
+                                <input type="radio" name="radio" value="DT"/>
+                            </label>
+                        </div> -->
+                        <button class="startBtn" type="submit" href="{{ url_for('result')}}">Start</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1>HOW TO GUIDE</h1>
+                    <p>1. Download or follow the Input Data Excel Template. <a href="/static/assets/uploads/PCOS_Template.xlsx" download>Download</a></p>
+                    <p>2. Upload the excel file to upload box.</p>
+                    <p>3. Select which model to use. It's either Support Vector Machine  (SVM) or Decision Tree (DT).</p>
+                    <p>4. Click start to begin evaluation.</p>
+
+                    <hr style="height: 5px; color: #ff0800;">
+
+                    <p>It will then show the contents of the file.</p>
+                    <p2>Placeholder</p2>
+
+                    <hr style="height: 5px; color: #ff0800;">
+                    
+                    <div class="modal-row">
+                        <div class="modal-col1">
+                            <p>After the evaluation, it will show the results on bottom whether it is <p1>INFECTED</p1> or <p1>NOTINFECTED</p1>.<br>Along with the details of which model has been used and some details about the patient's data.</p>
+                        </div>
+                        <div class="modal-col2">
+                            <img src="{{ url_for('static', filename='assets/placehold.png') }}" class="img-fluid" alt="placeholder img" />
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-            <div class="container-cont col m-2">
-                <p>PCOS<br>DIAGNOSING<br>TOOL</p>
-                <!-- <div class="container-btn">
-                    <label class="control-svm">
-                        SVM<br>
-                        <input type="radio" name="radio" value="SVM"/> 
-                    </label>
-                    <label class="control-dt">
-                        DT<br>
-                        <input type="radio" name="radio" value="DT"/>
-                    </label>
-                </div> -->
-                <button class="startBtn" type="submit" href="{{ url_for('result')}}">Start</button>
-            </div>    
-        </div>
-        <!-- <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>HOW TO GUIDE</h1>
-                <p>1. Download or follow the Input Data Excel Template. <a href="/static/assets/uploads/PCOS_Template.xlsx" download>Download</a></p>
-                <p>2. Upload the excel file to upload box.</p>
-                <p>3. Select which model to use. It's either Support Vector Machine  (SVM) or Decision Tree (DT).</p>
-                <p>4. Click start to begin evaluation.</p>
 
-                <hr style="height: 5px; color: #ff0800;">
-
-                <p>It will then show the contents of the file.</p>
-                <p2>Placeholder</p2>
-
-                <hr style="height: 5px; color: #ff0800;">
+            <script>
+                var modal = document.getElementById("myModal");
+                var btn = document.getElementById("myBtn");
+                var span = document.getElementsByClassName("close")[0];
                 
-                <div class="modal-row">
-                    <div class="modal-col1">
-                        <p>After the evaluation, it will show the results on bottom whether it is <p1>INFECTED</p1> or <p1>NOTINFECTED</p1>.<br>Along with the details of which model has been used and some details about the patient's data.</p>
-                    </div>
-                    <div class="modal-col2">
-                        <img src="{{ url_for('static', filename='assets/placehold.png') }}" class="img-fluid" alt="placeholder img" />
-                    </div>
-                </div>
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
                 
-            </div>
-        </div>
-
-        <script>
-            var modal = document.getElementById("myModal");
-            var btn = document.getElementById("myBtn");
-            var span = document.getElementsByClassName("close")[0];
-            
-            btn.onclick = function() {
-                modal.style.display = "block";
-            }
-            
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-            
-            window.onclick = function(event) {
-                if (event.target == modal) {
+                span.onclick = function() {
                     modal.style.display = "none";
                 }
-            }
-        </script> -->
-    </form>
+                
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script> -->
+        </form>
+    </div>
     {% endblock %}
 </body>
 

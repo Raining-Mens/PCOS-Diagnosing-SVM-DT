@@ -9,9 +9,9 @@
 <body>
     {% block content %}
     <div class="login">
-        
+
         <div class="tool-output1">
-            <div class="tbl-prev1"> 
+            <div class="tbl-prev1">
                 <table id="result-prev">
                     {% for row in range(1, EXCEL.max_row + 1) %}
                     <tr>
@@ -27,30 +27,34 @@
         <div class="bar1"></div>
         <div class="bar2"></div>
 
-            <!-- <button class="buttontable" type="button" onclick="window.location.href = 'home'">Back</button> -->        
-            <h2 class="buttontable1"><a class="buttontable" href="{{ url_for('home') }}">Back</a></h2>             
-            <h2 class="buttonabout1"><a class="aboutbutton" href="{{ url_for('about') }}">About</a></h2>
-            
-        <h3>DIAGNOSIS:</h3>
+        <div class="right-side-bttns">
+            <a class="backbutton" href="{{ url_for('home') }}">Back</a>
+            <a class="aboutbutton" href="{{ url_for('about') }}">About</a>
+        </div>
+
+
+        
         <div class="diagnosis">
+            <h3>DIAGNOSIS:</h3>
             <h1 style="font-size:50px">
                 <strong>{{RESULTS}}</strong>
             </h1>
         </div>
 
         <div class="model">
-            <h4>{{MODEL}}</h4>
+            <h4>MODEL: <span id="model-use">{{MODEL}}</span></h4>
         </div>
-        <h4>MODEL:</h4>
+        
 
         <div class="resulttable">
-            <h5>Patient ID: <span>{{ID}}</span></h5><br>
-            <h5>Age: <span>{{AGE}}</span></h5><br>
-            <h5>Hairgrowth: <span>{{HAIR}}</span></h5><br>
-            <h5>Cycle(R/I): <span>{{CYC}}</span></h5><br>
-            <h5>Avg. Follicle Size (L): <span>{{AFL}}</span></h5><br>
-            <h5>Avg. Follicle Size (R): <span>{{AFR}}</span></h5>
+            <p>Patient ID: <span>{{ID}}</span></p><br>
+            <p>Age: <span>{{AGE}}</span></p><br>
+            <p>Hairgrowth: <span>{{HAIR}}</span></p><br>
+            <p>Cycle(R/I): <span>{{CYC}}</span></p><br>
+            <p>Avg. Follicle Size (L): <span>{{AFL}}</span></p><br>
+            <p>Avg. Follicle Size (R): <span>{{AFR}}</span></p>
         </div>
+
     </div>
     {% endblock %}
 </body>

@@ -149,6 +149,7 @@ def tool():
             else:
                 filename = secure_filename(excel.filename)
                 excel.save(os.path.join(my_excel, filename))
+                session['save_excel'] = filename
 
             output = predict_excel_svm(excel)
             session['result'] = int(output)
@@ -179,9 +180,11 @@ def dt():
             else:
                 filename = secure_filename(excel.filename)
                 excel.save(os.path.join(my_excel, filename))
+                session['save_excel'] = filename
 
             output = predict_excel_dt(excel)
             session['result'] = int(output)
+            
             
             return redirect(url_for("result"))
     else:    
@@ -193,9 +196,9 @@ def dt():
 @app.route("/result", methods=["GET", "POST"])
 def result():
 
-    book = load_workbook(open(os.path.join(my_excel, "PCOS_Template.xlsx"), 'rb'))
+    save_excel = session['save_excel']
+    book = load_workbook(open(os.path.join(my_excel, save_excel), 'rb'))
     sheet = book.active
-    
     
     if "result" in session:
         result = session["result"]
@@ -210,7 +213,8 @@ def result():
             model_name = "SVM"
         else:
             model_name = "DT"
-
+            
+        print(result)
         if result == 1:
             return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
         else:

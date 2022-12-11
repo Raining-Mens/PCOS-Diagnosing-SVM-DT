@@ -1,6 +1,6 @@
 .login {
   overflow: hidden;
-  outline-color:#fd8a94;
+  outline-color: #fd8a94;
   outline-style: inset;
   outline-width: thick;
   background-color: white;
@@ -16,74 +16,68 @@
   box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
 }
 
-button.buttontable {
+.right-side-bttns {
   position: absolute;
   right: 30px;
-  bottom: 120px;
-  font-family: "Asap", sans-serif;
-  cursor: pointer;
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
+  bottom: 0;
+  display: block;
+  height: 200px;
+  text-align: center;
+  padding: auto;
   width: 150px;
-  border: 10px;
-  padding: 10px 0;
-  margin-top: 10px;
-  margin-left: -5px;
-  border-radius: 5px;
-  background-color: #f45b69;
-  transition: background-color 300ms;
+  line-height: 3;
+  padding-top: 50px;
+  padding-bottom: 10px;
 }
 
-button.buttontable:hover {
-  background-color: #f24353;
-}
-
-button.aboutbutton {
-  position: absolute;
-  right: 30px;
-  bottom: 60px;
-  font-family: "Asap", sans-serif;
-  cursor: pointer;
+.backbutton {
+  bottom: 0;
+  margin-right: 0;
+  font-family: "Montserrat";
+  font-weight: bold;
   color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  width: 150px;
-  border: 10px;
-  padding: 10px 0;
-  margin-top: 10px;
-  margin-left: -5px;
-  border-radius: 5px;
-  background-color: #f45b69;
-  transition: background-color 300ms;
+  background-color: #fa7470;
+  border-radius: 30px;
+  border-width: 0;
+  padding: 10px 52px;
+  font-size: medium;
+  text-decoration: none;
+  text-decoration: none;
 }
 
-button.aboutbutton:hover {
-  background-color: #f24353;
+.backbutton:hover {
+  background-color: #d93d4a;
+  color: white;
+  text-decoration: none;
 }
 
-
-h2.buttontable1 {
-  position: absolute;
-  right: 30px;
-  bottom: 120px;
-  font-family: "Asap", sans-serif;
+.aboutbutton {
+  text-decoration: none;
+  bottom: 0;
+  margin-right: 0;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: #fff;
+  background-color: #fa7470;
+  border-radius: 30px;
+  border-width: 0;
+  padding: 10px 50px;
+  font-size: medium;
+  text-decoration: none;
 }
 
-h2.buttonabout1 {
-  position: absolute;
-  right: 30px;
-  bottom: 60px;
-  font-family: "Asap", sans-serif;
+.aboutbutton:hover {
+  background-color: #d93d4a;
+  text-decoration: none;
+  color: white;
 }
-
 
 
 .tool-output1 {
   background-color: #d6d6d6;
   position: absolute;
   border-style: inset;
-  margin-top: 20px;
+  margin-top: -20px;
   padding: 20px;
   border-color: #919090;
   height: 200px;
@@ -91,48 +85,52 @@ h2.buttonabout1 {
   text-align: center;
 }
 
+/* .tbl-prev1 {
+  overflow-x: scroll;
+
+} */
+
 .tbl-prev1 {
-  position: absolute;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overflow-x: scroll;
   width: 700px;
   top: 5px;
 }
 
+.tbl-prev1::-webkit-scrollbar {
+  display: none;
+}
+
 .bar1 {
   border-left: 4px solid #f45b69;
-  height: 190px;
+  height: 200px;
   position: absolute;
-  bottom: 20px;
-  left: 250px;
-  margin-top: 370px;
-  margin-left: -5px;
-  top: -80px;
+  bottom: 0px;
+  left: 300px;
 }
 
 .bar2 {
   border-left: 4px solid #f45b69;
-  height: 190px;
+  height: 200px;
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   left: 600px;
-  margin-top: 370px;
-  margin-left: -5px;
-  top: -80px;
 }
 
-.login > h3 {
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-  top: 59%;
-  left: 10px;
-}
-
-.diagnosis > h1 {
+.diagnosis>h1 {
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
   color: red;
   top: 70%;
-  left: 10px;
+  left: 30px;
+}
+
+.diagnosis>h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 59%;
+  left: 30px;
 }
 
 .model {
@@ -140,22 +138,19 @@ h2.buttonabout1 {
   font-weight: bold;
   position: absolute;
   top: 90%;
-  left: 120px;
+  left: 30px;
+  display: block;
 }
 
-.login > h4 {
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-  top: 90%;
-  left: 10px;
-}
 
 .resulttable {
-  font-family: Arial, Helvetica, sans-serif;
   position: absolute;
-  line-height: 0.1;
-  bottom: 0.1%;
-  left: 32%;
+  line-height: 0.4;
+  bottom: 0;
+  left: 40%;
 }
 
-
+.resulttable p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
