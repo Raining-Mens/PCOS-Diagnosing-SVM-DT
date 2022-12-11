@@ -196,6 +196,7 @@ def result():
     book = load_workbook(open(os.path.join(my_excel, "PCOS_Template.xlsx"), 'rb'))
     sheet = book.active
     
+    
     if "result" in session:
         result = session["result"]
         model = session["model"]
