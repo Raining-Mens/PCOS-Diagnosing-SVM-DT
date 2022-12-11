@@ -20,13 +20,14 @@
 <body>        
     <!-- NAVBAR -->
     <div class="background">
-        <img src="{{ url_for('static', filename='assets/background-pcos1.png') }}" class="img-fluid" alt="ovary img" />  
+        <div id="back">
+            <img src="{{ url_for('static', filename='assets/background-pcos1.png') }}" class="img-fluid" alt="ovary img" />  
+        </div>
         <header>
             <img src="{{ url_for('static', filename='assets/blue title.png') }}" class="logo" alt="logo img" />
             <nav class="up-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="{{ url_for('tool')}}">Run Application</a></li>
                     <li><a id="myBtn" href="#">How To Guide</a></li>
                     <li><a href="{{ url_for('about')}}">About</a></li>
                 </ul>
@@ -90,6 +91,14 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        var backimg = document.getElementById("back");
+
+        if (window.location.pathname == "/tool" || window.location.pathname == "/dt" || window.location.pathname == "/result" || window.location.pathname == "/about"){
+            backimg.style.display = "none";
+        }
     </script>
     {% block content %}
     
