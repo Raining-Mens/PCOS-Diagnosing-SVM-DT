@@ -6,7 +6,59 @@
 </head>
 <body>
     {% block content %}
-    <h1>This is about page</h1>
+    <div class="container-about">
+        <div class="backg-about">
+            <div class="title">
+                <h1>PCOS Diagnosing Tool</h1>
+                <p class="pcos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet enim id convallis sollicitudin. 
+                    Aenean aliquet at purus sit amet sollicitudin. Donec ipsum lorem, egestas non magna at, tempor volutpat dolor. 
+                    Phasellus tincidunt sem erat, nec interdum felis imperdiet vestibulum. Vivamus semper arcu id ullamcorper euismod. 
+                    Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
+                </p>
+            </div>
+            <div class="body">
+                <h2>ADASYN-ENN</h2>
+                <div class="adasyn-row">
+                        <p class="adasyn">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet enim id convallis sollicitudin. 
+                            Aenean aliquet at purus sit amet sollicitudin. Donec ipsum lorem, egestas non magna at, tempor volutpat dolor. 
+                            Phasellus tincidunt sem erat, nec interdum felis imperdiet vestibulum. Vivamus semper arcu id ullamcorper euismod. 
+                            Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
+                        </p>
+                        <img src="{{ url_for('static', filename='assets/charts/dt-balance.png') }}" class="dt-balance" alt="dt balance img" />
+                </div>
+                <h2>CONFUSION MATRIX (DECISION TREE)</h2>
+                <p class="adasyn">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet enim id convallis sollicitudin. 
+                    Aenean aliquet at purus sit amet sollicitudin. Donec ipsum lorem, egestas non magna at, tempor volutpat dolor. 
+                    Phasellus tincidunt sem erat, nec interdum felis imperdiet vestibulum. Vivamus semper arcu id ullamcorper euismod. 
+                    Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
+                </p>
+                <img src="{{ url_for('static', filename='assets/charts/dt-cfm.png') }}" class="dt-cfm" alt="dt cfm img" />
+                <h2>CONFUSION MATRIX (SUPPORT VECTOR MACHINE)</h2>
+                <p class="adasyn">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet enim id convallis sollicitudin. 
+                    Aenean aliquet at purus sit amet sollicitudin. Donec ipsum lorem, egestas non magna at, tempor volutpat dolor. 
+                    Phasellus tincidunt sem erat, nec interdum felis imperdiet vestibulum. Vivamus semper arcu id ullamcorper euismod. 
+                    Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
+                </p>
+                <img src="{{ url_for('static', filename='assets/charts/svm-cfm.png') }}" class="dt-cfm" alt="dt cfm img" />
+                <h2>PRECISION-RECALL CURVE (DECISION TREE)</h2>
+                <p class="adasyn">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet enim id convallis sollicitudin. 
+                    Aenean aliquet at purus sit amet sollicitudin. Donec ipsum lorem, egestas non magna at, tempor volutpat dolor. 
+                    Phasellus tincidunt sem erat, nec interdum felis imperdiet vestibulum. Vivamus semper arcu id ullamcorper euismod. 
+                    Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
+                </p>
+                <img src="{{ url_for('static', filename='assets/charts/dt-prc.png') }}" class="dt-cfm" alt="dt cfm img" />
+                <h2>PRECISION-RECALL CURVE (SUPPORT VECTOR MACHINE)</h2>
+                <p class="adasyn">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet enim id convallis sollicitudin. 
+                    Aenean aliquet at purus sit amet sollicitudin. Donec ipsum lorem, egestas non magna at, tempor volutpat dolor. 
+                    Phasellus tincidunt sem erat, nec interdum felis imperdiet vestibulum. Vivamus semper arcu id ullamcorper euismod. 
+                    Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
+                </p>
+                <img src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}" class="dt-cfm" alt="dt cfm img" />
+            </div>
+        </div>
+    </div>
+    
+    
     {% endblock %}
 </body>
 </html>
