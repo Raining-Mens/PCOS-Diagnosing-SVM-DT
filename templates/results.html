@@ -27,13 +27,9 @@
         <div class="bar1"></div>
         <div class="bar2"></div>
 
-        <form class="buttontable" action="/tool" method="POST">
-            <button class="buttontable" href="{{ url_for('tool') }}">Back</button>
-        </form>
-
-        <form class="aboutbutton">
-            <button class="aboutbutton">About</button>
-        </form>
+            <!-- <button class="buttontable" type="button" onclick="window.location.href = 'home'">Back</button> -->
+            <a class="buttontable" href="{{ url_for('home') }}">Back</a>
+            <a class="aboutbutton" href="{{ url_for('about') }}">About</a>
 
         <h3>DIAGNOSIS:</h3>
         <div class="diagnosis">
