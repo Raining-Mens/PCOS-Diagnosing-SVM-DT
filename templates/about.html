@@ -54,10 +54,44 @@
                     Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
                 </p>
                 <img src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}" class="dt-cfm" alt="dt cfm img" />
+
+                <h1 class="team-heading">The Team!</h1>
+                
+                <div class="container">
+                    <div class="card-deck">
+                            <div class="row">
+                                <div class="card col-md-6">
+                                        <img src="{{ url_for('static', filename='assets/Kristian.jpg') }}" class="member-pic" alt="Kristian Lead">
+                                            <div class="pic-cont">
+                                                <p>Main Team Leader</p>
+                                            </div>
+                                </div>
+                                <div class="card col-md-6">     
+                                        <img src="{{ url_for('static', filename='assets/Lance.jpg') }}" class="member-pic" alt="Lance Second Lead">
+                                            <div class="pic-cont">
+                                                <p>Second Main Leader</p>
+                                            </div>
+                                </div>
+                                <div class="card col-md-6"> 
+                                            <img src="{{ url_for('static', filename='assets/Jayson.jpg') }}" class="member-pic" alt="Jayson Researcher">
+                                            <div class="pic-cont">
+                                                <p>Front end Developer/Researcher</p>
+                                            </div>
+                                </div>
+                                <div class="card col-md-6"> 
+                                            <img src="{{ url_for('static', filename='assets/Karla.jpg') }}" class="member-pic" alt="Karla Front end">
+                                            <div class="pic-cont">
+                                                <p>Front End Developer</p>
+                                            </div>
+                                </div> 
+                                </div>
+                                  
+                            </div>
+                        </div>    
+                </div>           
             </div>
         </div>
     </div>
-    
     
     {% endblock %}
 </body>
