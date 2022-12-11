@@ -62,6 +62,23 @@ button.aboutbutton:hover {
   background-color: #f24353;
 }
 
+
+h2.buttontable1 {
+  position: absolute;
+  right: 30px;
+  bottom: 120px;
+  font-family: "Asap", sans-serif;
+}
+
+h2.buttonabout1 {
+  position: absolute;
+  right: 30px;
+  bottom: 60px;
+  font-family: "Asap", sans-serif;
+}
+
+
+
 .tool-output1 {
   background-color: #d6d6d6;
   position: absolute;
