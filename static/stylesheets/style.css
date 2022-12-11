@@ -10,20 +10,9 @@ body, html {
     background-color: #fff;
 }
 
-.main-home {
-    background-color:#fff;
-    height: max-content;
-}
 
-.container-main {
-    z-index: auto;
-    position: relative;
-    align-items: center;
-    background-color:#fff;
-    max-height: fit-content;
-    padding: 50px;
-}
 
+/* <-- NavBar */
 header {
     display: flex;
     justify-content: flex-end;
@@ -69,6 +58,19 @@ header {
     color: #fa7470;
 }
 
+.background .img-fluid {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    right: 0%;
+    bottom: 0%;
+}
+
+/* NavBar -->*/
+
+
+/* <-- Index Page */
+
 .header-title p {
     text-align: start;
     margin-left: 40px;
@@ -76,14 +78,6 @@ header {
     font-weight: bold;
     width: 50%;
     justify-content: space-around;
-}
-
-.background .img-fluid {
-    position: absolute;
-    max-width: 100%;
-    max-height: 100%;
-    right: 0%;
-    bottom: 0%;
 }
 
 .container-fluid .col {
@@ -142,6 +136,20 @@ header {
     background-color: #d93d4a;
 }
 
+/* Index Page --> */
+
+/* <-- Tool Pages */
+.container-main {
+    z-index: auto;
+    position: relative;
+    align-items: center;
+    background-color:#fff;
+    max-height: fit-content;
+    padding: 70px;
+    width: 100%;
+    height: 100%;
+}
+
 .container-io {
     z-index: 4;
     position: relative;
@@ -153,7 +161,7 @@ header {
     position: relative;
     width: 50%;
     text-align: center;
-    padding: 25px;
+    padding: 0;
 }
 
 .container-cont p {
@@ -193,7 +201,7 @@ header {
     
   }
   
-.control-svm {
+/* .control-svm {
     width: 110px;
     height: 90px;
     text-align: center;
@@ -235,8 +243,8 @@ header {
     background-color: #feecdb;
     align-self: center;
     border-radius: 10%;
-}
-
+} */
+/* 
 .start {
     margin-top: 20px;
     font-family: "Montserrat";
@@ -250,16 +258,16 @@ header {
 }
 
 .start:hover {
-    /* margin-top: 20px;
+    margin-top: 20px;
     width: 120px;
-    align-self: center; */
+    align-self: center;
     background-color:#d93d4a;
-    /* font-size: 40px;
+    font-size: 40px;
     font-weight: bold;
     border: 0;
     border-radius: 5%;
-    color: white; */
-}
+    color: white;
+} */
 
 
 .tbl-prev {
@@ -268,11 +276,15 @@ header {
     height: 350px;
 }
 
-.row-2 {
+/* Tool Pages --> */
+
+/* .row-2 {
     display: flex;
     justify-content: flex-end;
-}
+} */
 
+
+/* <-- How TO Guide */
 .howBtn {
     margin-top: 10px;
     width: 40px;
@@ -401,3 +413,5 @@ header {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* How to Guide -->*/
