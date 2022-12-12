@@ -236,7 +236,7 @@ header {
     border-bottom-right-radius: 10px;
     border-color: #fa7470;
     border-style: outset;
-    height: 300px;
+    height: 280px;
     text-align: center;
     margin-bottom: 0;
 }
@@ -247,7 +247,7 @@ header {
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll;
     width: 650px;
-    height: 300px; 
+    height: 280px; 
   }
   
 .tbl-prev::-webkit-scrollbar {

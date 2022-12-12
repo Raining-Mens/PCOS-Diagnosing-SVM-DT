@@ -9,7 +9,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 500px;
+  height: 450px;
   width: 800px;
   transform: translate(-50%, -50%);
   transition: transform 300ms, box-shadow 300ms;
@@ -26,8 +26,8 @@
   padding: auto;
   width: 150px;
   line-height: 3;
-  padding-top: 50px;
-  padding-bottom: 10px;
+  padding-top: 65px;
+  padding-bottom: 0px;
 }
 
 .backbutton {
@@ -49,27 +49,6 @@
   background-color: #d93d4a;
   color: white;
   text-decoration: none;
-}
-
-.aboutbutton {
-  text-decoration: none;
-  bottom: 0;
-  margin-right: 0;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: #fff;
-  background-color: #fa7470;
-  border-radius: 30px;
-  border-width: 0;
-  padding: 10px 50px;
-  font-size: medium;
-  text-decoration: none;
-}
-
-.aboutbutton:hover {
-  background-color: #d93d4a;
-  text-decoration: none;
-  color: white;
 }
 
 
@@ -107,7 +86,7 @@
   height: 200px;
   position: absolute;
   bottom: 0px;
-  left: 300px;
+  left: 320px;
 }
 
 .bar2 {
@@ -129,7 +108,7 @@
 .diagnosis>h3 {
   font-family: "Montserrat";
   position: absolute;
-  top: 59%;
+  top: 57%;
   left: 30px;
 }
 
@@ -157,7 +136,7 @@
   position: absolute;
   line-height: 0.4;
   bottom: 10px;
-  left: 40%;
+  left: 43%;
 }
 
 .resulttable p {
