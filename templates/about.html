@@ -18,10 +18,11 @@
             <div class="body">
                 <h2>ADASYN-ENN</h2>
                 <div class="adasyn-row">
-                        <p class="adasyn">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet enim id convallis sollicitudin. 
-                            Aenean aliquet at purus sit amet sollicitudin. Donec ipsum lorem, egestas non magna at, tempor volutpat dolor. 
-                            Phasellus tincidunt sem erat, nec interdum felis imperdiet vestibulum. Vivamus semper arcu id ullamcorper euismod. 
-                            Pellentesque quam metus, placerat at rutrum vel, tincidunt vitae nulla. Donec a iaculis leo.
+                        <p class="adasyn">ADASYN-ENN is an ensemble balancing method consists of Adaptive Synthetic and Edited Nearest Neighbor. Adaptive Synthetic 
+                            is an over-sampling technique which generates synthetic instances on the region with less positive instances than one with more positive instances
+                            to increase the recognition of positive. On the other hand, ENN or Edited Nearest Neighbor is an under-sampling technique that deletes sample sets like
+                            noises which can be present after an over-sampling method was processed to the data. ENN is used to remove noisy data that cancel out the flaws of ADASYN,
+                            which may result on producing a much robust balanced data for better fitting into classifiers. 
                         </p>
                         <img src="{{ url_for('static', filename='assets/charts/dt-balance.png') }}" class="dt-balance" alt="dt balance img" />
                 </div>
