@@ -1,7 +1,7 @@
 .login {
   overflow: hidden;
-  outline-color: #fd8a94;
-  outline-style: inset;
+  outline-color: #fa7470;
+  outline-style: outset;
   outline-width: thick;
   background-color: white;
   padding: 40px 30px 30px 30px;
@@ -9,7 +9,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 70%;
+  height: 500px;
   width: 800px;
   transform: translate(-50%, -50%);
   transition: transform 300ms, box-shadow 300ms;
@@ -74,7 +74,7 @@
 
 
 .tool-output1 {
-  background-color: #d6d6d6;
+  background-color: #ececec;
   position: absolute;
   border-style: inset;
   margin-top: -20px;
@@ -119,7 +119,7 @@
 }
 
 .diagnosis>h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat";
   position: absolute;
   color: red;
   top: 70%;
@@ -127,14 +127,19 @@
 }
 
 .diagnosis>h3 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat";
   position: absolute;
   top: 59%;
   left: 30px;
 }
 
+.diagnosis strong {
+  font-family: "Montserrat";
+  color: #fa7470;
+}
+
 .model {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat";
   font-weight: bold;
   position: absolute;
   top: 90%;
@@ -142,15 +147,21 @@
   display: block;
 }
 
+.model h4 {
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
 
 .resulttable {
   position: absolute;
   line-height: 0.4;
-  bottom: 0;
+  bottom: 10px;
   left: 40%;
 }
 
 .resulttable p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat";
+  font-weight: 500;
   font-size: 20px;
 }
