@@ -32,9 +32,13 @@ def git_update():
 def home():
     return render_template("index.html")
 
-@app.route("/disease")
-def disease():
-    return render_template("disease.html")
+@app.route("/ovarianindex")
+def ovarianindex():
+    return render_template("ovarian-index.html")
+
+@app.route("/pcosindex")
+def pcosindex():
+    return render_template("pcos-index.html")
 
 def allowed_excel(filename):
 
