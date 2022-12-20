@@ -17,7 +17,7 @@
     opacity: 0.9;
 }
 
-.title h1 {
+.title h1, .heads {
     font-family: "Montserrat";
     font-weight: 700;
     color: #fa7470;
@@ -76,6 +76,8 @@
 }
 
 .team-heading{
+    font-family: "Montserrat";
+    font-weight: 700;
     height: 100px;
     line-height: 100px;
     text-align: center;
