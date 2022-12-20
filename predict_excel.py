@@ -115,12 +115,12 @@ def ovarian_svm(excel):
     CEyA = ws["O2"].value
 
 
-    session["PatID"] = "125"
     session["Age"] = Age
     session["Menopause"] = Menopause
     session["CANine"] = CANine
     session["CASeven"] = CASeven
     session["AeFP"] = AeFP
+    session["CAOneTwo"] = CAOneTwo
 
 
     model = pickle.load(open(os.path.join(my_assets, "svm-ovarian.pkl"), 'rb'))
@@ -151,12 +151,12 @@ def ovarian_dt(excel):
     CEyA = ws["O2"].value
 
 
-    session["PatID"] = "125"
     session["Age"] = Age
     session["Menopause"] = Menopause
     session["CANine"] = CANine
     session["CASeven"] = CASeven
     session["AeFP"] = AeFP
+    session["CAOneTwo"] = CAOneTwo
 
 
     model = pickle.load(open(os.path.join(my_assets, "dt-ovarian.pkl"), 'rb'))

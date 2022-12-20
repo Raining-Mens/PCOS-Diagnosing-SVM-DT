@@ -219,9 +219,8 @@ def ovarianresult():
         CANine = session["CANine"]
         CASeven = session["CASeven"]
         AeFP = session["AeFP"]
+        CAOneTwo = session["CAOneTwo"]
 
-
-        PatID = session["PatID"]
         Age = session["Age"]
         if model == "SVM":
             model_name = "SVM"
@@ -230,9 +229,9 @@ def ovarianresult():
             
         print(result)
         if result == 0:
-            return render_template("ovarian-result.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP)
+            return render_template("ovarian-result.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
         elif result == 1:
-            return render_template("ovarian-result.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP)
+            return render_template("ovarian-result.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
     else:
         return redirect(url_for("tool"))
 
