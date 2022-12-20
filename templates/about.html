@@ -9,8 +9,8 @@
     <div class="container-about">
         <div class="backg-about">
             <div class="title">
-                <h1>PCOS Diagnosing Tool</h1>
-                <p class="pcos">This tool will diagnose if the patient is infected with Polycystic Ovary Syndrome by examining
+                <h1>Ovarian Disease Diagnosing Tool</h1>
+                <p class="pcos">This tool will diagnose if the patient is positive in Polycystic Ovary Syndrome or Ovarian Cancer by examining
                     physical and clinical assessment of the patient using the machine learning models SVM and
                     Decision Tree
                 </p>
@@ -26,6 +26,9 @@
                         </p>
                         <img src="{{ url_for('static', filename='assets/charts/dt-balance.png') }}" class="dt-balance" alt="dt balance img" />
                 </div>
+
+                <hr style="height: 5px; color: #ff0800;">
+                <h1 class="heads">Polycystic Ovary Syndrome</h1>
                 <h2>PRECISION-RECALL CURVE (DECISION TREE)</h2>
                 <p class="adasyn">The graph below shows the precision-recall curve or PRC of decision tree algorithm with and without Adasyn-Enn. 
                     The three lines indicates the PRC of each classes and the average of the two. The solid black line corresponds to the class 0 which
@@ -42,6 +45,26 @@
                      Adasyn-Enn resulting to higher average PRC.
                 </p>
                 <img src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}" class="dt-cfm" alt="dt cfm img" />
+
+                <hr style="height: 5px; color: #ff0800;">
+                <h1 class="heads">Ovarian Cancer</h1>
+                <h2>PRECISION-RECALL CURVE (DECISION TREE)</h2>
+                <p class="adasyn">The graph below shows the precision-recall curve or PRC of decision tree algorithm with and without Adasyn-Enn. 
+                    The three lines indicates the PRC of each classes and the average of the two. The solid black line corresponds to the class 0 which
+                     is the classes that don't have PCOS, the solid green line corresponds to the class 1, those that have PCOS and the dotted blue line 
+                     is the average. While the PRC of class 0 is higher when there is no Adasyn-Enn, the PRC of class 1 is significantly higher if the 
+                     Adasyn-Enn resulting to higher average PRC.     
+                </p>
+                <img src="{{ url_for('static', filename='assets/charts/dt-prc.png') }}" class="dt-cfm" alt="dt cfm img" />
+                <h2>PRECISION-RECALL CURVE (SUPPORT VECTOR MACHINE)</h2>
+                <p class="adasyn">The graph below shows the precision-recall curve or PRC of SVM algorithm with and without Adasyn-Enn. 
+                    The three lines indicates the PRC of each classes and the average of the two. The solid black line corresponds to the class 0 which
+                     is the classes that don't have PCOS, the solid green line corresponds to the class 1, those that have PCOS and the dotted blue line 
+                     is the average. While the PRC of class 0 is higher when there is no Adasyn-Enn, the PRC of class 1 is significantly higher if the 
+                     Adasyn-Enn resulting to higher average PRC.
+                </p>
+                <img src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}" class="dt-cfm" alt="dt cfm img" />
+                <hr style="height: 5px; color: #ff0800;">
 
                 <h1 class="team-heading">The Team!</h1>
                 
