@@ -105,14 +105,14 @@ def ovarian_svm(excel):
 
     ws = wb.active
 
-    Age = ws["C125"].value
-    Menopause = ws["AH125"].value
-    CANine = ws["M125"].value
-    CASeven = ws["N125"].value
-    AeFP = ws["A125"].value
-    CAOneTwo = ws["L125"].value
-    HEFour = ws["Z125"].value
-    CEyA = ws["O125"].value
+    Age = ws["C2"].value
+    Menopause = ws["AH2"].value
+    CANine = ws["M2"].value
+    CASeven = ws["N2"].value
+    AeFP = ws["A2"].value
+    CAOneTwo = ws["L2"].value
+    HEFour = ws["Z2"].value
+    CEyA = ws["O2"].value
 
 
     session["PatID"] = "125"
@@ -121,7 +121,6 @@ def ovarian_svm(excel):
     session["CANine"] = CANine
     session["CASeven"] = CASeven
     session["AeFP"] = AeFP
-    session["CAOneTwo"] = CAOneTwo
 
 
     model = pickle.load(open(os.path.join(my_assets, "svm-ovarian.pkl"), 'rb'))
@@ -142,14 +141,14 @@ def ovarian_dt(excel):
 
     ws = wb.active
 
-    Age = ws["C125"].value
-    Menopause = ws["AH125"].value
-    CANine = ws["M125"].value
-    CASeven = ws["N125"].value
-    AeFP = ws["A125"].value
-    CAOneTwo = ws["L125"].value
-    HEFour = ws["Z125"].value
-    CEyA = ws["O125"].value
+    Age = ws["C2"].value
+    Menopause = ws["AH2"].value
+    CANine = ws["M2"].value
+    CASeven = ws["N2"].value
+    AeFP = ws["A2"].value
+    CAOneTwo = ws["L2"].value
+    HEFour = ws["Z2"].value
+    CEyA = ws["O2"].value
 
 
     session["PatID"] = "125"
@@ -158,7 +157,6 @@ def ovarian_dt(excel):
     session["CANine"] = CANine
     session["CASeven"] = CASeven
     session["AeFP"] = AeFP
-    session["CAOneTwo"] = CAOneTwo
 
 
     model = pickle.load(open(os.path.join(my_assets, "dt-ovarian.pkl"), 'rb'))

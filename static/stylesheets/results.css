@@ -101,7 +101,7 @@
   font-family: "Montserrat";
   position: absolute;
   color: red;
-  top: 70%;
+  bottom: 80px;
   left: 30px;
 }
 
@@ -121,7 +121,7 @@
   font-family: "Montserrat";
   font-weight: bold;
   position: absolute;
-  top: 90%;
+  bottom: 3px;
   left: 30px;
   display: block;
 }

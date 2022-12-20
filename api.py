@@ -199,8 +199,8 @@ def result():
         print(result)
         if result == 1:
             return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
-        else:
-            return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
+        elif result == 0:
+            return render_template("results.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
     else:
         return redirect(url_for("tool"))
 
@@ -219,7 +219,7 @@ def ovarianresult():
         CANine = session["CANine"]
         CASeven = session["CASeven"]
         AeFP = session["AeFP"]
-        CAOneTwo = session["CAOneTwo"]
+
 
         PatID = session["PatID"]
         Age = session["Age"]
@@ -230,9 +230,9 @@ def ovarianresult():
             
         print(result)
         if result == 0:
-            return render_template("ovarian-result.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAONE=CAOneTwo)
-        else:
-            return render_template("ovarian-result.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAONE=CAOneTwo)
+            return render_template("ovarian-result.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP)
+        elif result == 1:
+            return render_template("ovarian-result.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP)
     else:
         return redirect(url_for("tool"))
 
