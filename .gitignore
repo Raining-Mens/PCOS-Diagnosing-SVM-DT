@@ -1,2 +1,4 @@
 .vscode/settings.json
 static/assets/uploads/PCOS_Template.xlsx
+__pycache__/predict_excel.cpython-39.pyc
+__pycache__/config.cpython-39.pyc
