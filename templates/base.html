@@ -39,11 +39,10 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h1>HOW TO GUIDE</h1>
-            <p>1. Download or follow the Input Data Excel Template. <a href="/static/assets/uploads/PCOS_Template.xlsx" download>Download for PCOS</a> or <a href="/static/assets/uploads/OC_template.xlsx" download>Download for Ovarian Cancer</a>
-            <br>2. Choose which disease to predict: PCOS or Ovarian Cancer. 
-            <br>3. Select which model to use. It's either Support Vector Machine (SVM) or Decision Tree (DT).
-            <br>4. Upload the excel file to upload box.
-            <br>5. Click start to begin evaluation.</p>
+            <p>1. Download or follow the Input Data Excel Template. <a href="/static/assets/uploads/PCOS_Template_Empty.xlsx" download>Download</a>
+            <br>2. Select which model to use. It's either Support Vector Machine  (SVM) or Decision Tree (DT).
+            <br>3. Upload the excel file to upload box.
+            <br>4. Click start to begin evaluation.</p>
 
             <hr style="height: 5px; color: #ff0800;">
 
@@ -98,7 +97,7 @@
     <script>
         var backimg = document.getElementById("back");
 
-        if (window.location.pathname == "/tool" || window.location.pathname == "/dt" || window.location.pathname == "/result" || window.location.pathname == "/about" || window.location.pathname == "/ovariansvm" || window.location.pathname == "/ovariandt" || window.location.pathname == "/ovarianresult"){
+        if (window.location.pathname == "/tool" || window.location.pathname == "/dt" || window.location.pathname == "/result" || window.location.pathname == "/about"){
             backimg.style.display = "none";
         }
     </script>
