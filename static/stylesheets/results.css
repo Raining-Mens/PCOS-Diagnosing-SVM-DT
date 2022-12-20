@@ -1,0 +1,146 @@
+.login {
+  overflow: hidden;
+  outline-color: #fa7470;
+  outline-style: outset;
+  outline-width: thick;
+  background-color: white;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 450px;
+  width: 800px;
+  transform: translate(-50%, -50%);
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+}
+
+.right-side-bttns {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  display: block;
+  height: 200px;
+  text-align: center;
+  padding: auto;
+  width: 150px;
+  line-height: 3;
+  padding-top: 65px;
+  padding-bottom: 0px;
+}
+
+.backbutton {
+  bottom: 0;
+  margin-right: 0;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: #fff;
+  background-color: #fa7470;
+  border-radius: 30px;
+  border-width: 0;
+  padding: 10px 52px;
+  font-size: medium;
+  text-decoration: none;
+  text-decoration: none;
+}
+
+.backbutton:hover {
+  background-color: #d93d4a;
+  color: white;
+  text-decoration: none;
+}
+
+
+.tool-output1 {
+  background-color: #ececec;
+  position: absolute;
+  border-style: inset;
+  margin-top: -20px;
+  padding: 20px;
+  border-color: #919090;
+  height: 200px;
+  width: 740px;
+  text-align: center;
+}
+
+/* .tbl-prev1 {
+  overflow-x: scroll;
+
+} */
+
+.tbl-prev1 {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: scroll;
+  width: 700px;
+  top: 5px;
+}
+
+.tbl-prev1::-webkit-scrollbar {
+  display: none;
+}
+
+.bar1 {
+  border-left: 4px solid #f45b69;
+  height: 200px;
+  position: absolute;
+  bottom: 0px;
+  left: 320px;
+}
+
+.bar2 {
+  border-left: 4px solid #f45b69;
+  height: 200px;
+  position: absolute;
+  bottom: 0px;
+  left: 600px;
+}
+
+.diagnosis>h1 {
+  font-family: "Montserrat";
+  position: absolute;
+  color: red;
+  bottom: 80px;
+  left: 30px;
+}
+
+.diagnosis>h3 {
+  font-family: "Montserrat";
+  position: absolute;
+  top: 57%;
+  left: 30px;
+}
+
+.diagnosis strong {
+  font-family: "Montserrat";
+  color: #fa7470;
+}
+
+.model {
+  font-family: "Montserrat";
+  font-weight: bold;
+  position: absolute;
+  bottom: 3px;
+  left: 30px;
+  display: block;
+}
+
+.model h4 {
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+
+.resulttable {
+  position: absolute;
+  line-height: 0.4;
+  bottom: 10px;
+  left: 43%;
+}
+
+.resulttable p {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
+}
