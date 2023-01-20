@@ -22,35 +22,29 @@ def predict_excel_svm(excel):
     Age = ws["B2"].value
     Hairgrowth = ws["I2"].value
     SkinDarkening = ws["J2"].value
-    PulseRateBPM = ws["Q2"].value
     CycleRI = ws["T2"].value
-    FSHmIUmL = ws["AA2"].value
-    LHmIUmL = ws["AB2"].value
-    AMHngmL = ws["AE2"].value
-    PRGngmL = ws["AH2"].value
-    RBSmgdl = ws["AI2"].value
-    BP_SystolicmmHg = ws["AJ2"].value
-    BP_DiastolicmmHg = ws["AK2"].value
     AvgFsizeLmm = ws["AN2"].value
     AvgFsizeRmm = ws["AO2"].value
-    Endometriummm = ws["AP2"].value
+    WeightGain = ws["H2"].value
+    FastFood = ws["M2"].value
+    Pimple = ws["L2"].value
+    CycleLength = ws["U2"].value
 
     session["PatID"] = PatID
     session["Age"] = Age
     session["Hairgrowth"] = Hairgrowth
     session["CycleRI"] = CycleRI
-    session["AvgFsizeLmm"] = AvgFsizeLmm
-    session["AvgFsizeRmm"] = AvgFsizeRmm
+    session["WeightGain"] = WeightGain
+    session["FastFood"] = FastFood
 
 
     model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
     session['model'] = "SVM"
 
 
-    makeprediction = model.predict([[Age, Hairgrowth, SkinDarkening,
-                                    PulseRateBPM, CycleRI, FSHmIUmL, LHmIUmL,
-                                    AMHngmL, PRGngmL, RBSmgdl, BP_SystolicmmHg,
-                                    BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm, Endometriummm]])
+    makeprediction = model.predict([[Hairgrowth, SkinDarkening,
+                                    WeightGain, CycleRI, FastFood, Pimple,
+                                    CycleLength, AvgFsizeLmm, AvgFsizeRmm]])
 
     output = round(makeprediction[0], 2)
 
@@ -61,39 +55,34 @@ def predict_excel_dt(excel):
 
     ws = wb.active
 
+    
     PatID = ws["A2"].value
     Age = ws["B2"].value
     Hairgrowth = ws["I2"].value
     SkinDarkening = ws["J2"].value
-    PulseRateBPM = ws["Q2"].value
     CycleRI = ws["T2"].value
-    FSHmIUmL = ws["AA2"].value
-    LHmIUmL = ws["AB2"].value
-    AMHngmL = ws["AE2"].value
-    PRGngmL = ws["AH2"].value
-    RBSmgdl = ws["AI2"].value
-    BP_SystolicmmHg = ws["AJ2"].value
-    BP_DiastolicmmHg = ws["AK2"].value
     AvgFsizeLmm = ws["AN2"].value
     AvgFsizeRmm = ws["AO2"].value
-    Endometriummm = ws["AP2"].value
+    WeightGain = ws["H2"].value
+    FastFood = ws["M2"].value
+    Pimple = ws["L2"].value
+    CycleLength = ws["U2"].value
 
     session["PatID"] = PatID
     session["Age"] = Age
     session["Hairgrowth"] = Hairgrowth
     session["CycleRI"] = CycleRI
-    session["AvgFsizeLmm"] = AvgFsizeLmm
-    session["AvgFsizeRmm"] = AvgFsizeRmm
+    session["WeightGain"] = WeightGain
+    session["FastFood"] = FastFood
 
 
     model = pickle.load(open(os.path.join(my_assets, "dt-model.pkl"), 'rb'))
     session['model'] = "DT"
 
 
-    makeprediction = model.predict([[Age, Hairgrowth, SkinDarkening,
-                                    PulseRateBPM, CycleRI, FSHmIUmL, LHmIUmL,
-                                    AMHngmL, PRGngmL, RBSmgdl, BP_SystolicmmHg,
-                                    BP_DiastolicmmHg, AvgFsizeLmm, AvgFsizeRmm, Endometriummm]])
+    makeprediction = model.predict([[Hairgrowth, SkinDarkening,
+                                    WeightGain, CycleRI, FastFood, Pimple,
+                                    CycleLength, AvgFsizeLmm, AvgFsizeRmm]])
 
     output = round(makeprediction[0], 2)
 

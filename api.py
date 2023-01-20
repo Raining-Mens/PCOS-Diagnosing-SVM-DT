@@ -189,8 +189,8 @@ def result():
         Age = session["Age"]
         Hairgrowth = session["Hairgrowth"]
         CycleRI = session["CycleRI"]
-        AvgFsizeLmm = session["AvgFsizeLmm"]
-        AvgFsizeRmm = session["AvgFsizeRmm"]
+        WeightGain = session["WeightGain"]
+        FastFood = session["FastFood"]
         if model == "SVM":
             model_name = "SVM"
         else:
@@ -198,9 +198,9 @@ def result():
             
         print(result)
         if result == 1:
-            return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
+            return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
         elif result == 0:
-            return render_template("results.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=AvgFsizeLmm, AFR=AvgFsizeRmm)
+            return render_template("results.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
     else:
         return redirect(url_for("tool"))
 
