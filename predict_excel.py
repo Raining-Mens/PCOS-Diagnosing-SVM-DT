@@ -38,7 +38,7 @@ def predict_excel_svm(excel):
     session["FastFood"] = FastFood
 
 
-    model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
+    model = pickle.load(open(os.path.join(my_assets, "without-model-svm.pkl"), 'rb'))
     session['model'] = "SVM"
 
 
@@ -76,7 +76,7 @@ def predict_excel_dt(excel):
     session["FastFood"] = FastFood
 
 
-    model = pickle.load(open(os.path.join(my_assets, "dt-model.pkl"), 'rb'))
+    model = pickle.load(open(os.path.join(my_assets, "without-model-tree.pkl"), 'rb'))
     session['model'] = "DT"
 
 
