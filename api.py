@@ -119,6 +119,13 @@ def dt():
 def ovariansvm():
     session.pop("result", None)
     session.pop("model", None)
+    session.pop("PatID", None)
+    session.pop("Age", None)
+    session.pop("Hairgrowth", None)
+    session.pop("CycleRI", None)
+    session.pop("WeightGain", None)
+    session.pop("FastFood", None)
+
     if request.method == "POST":
         if request.files:
             excel = request.files["input"]
@@ -149,6 +156,12 @@ def ovariansvm():
 def ovariandt():
     session.pop("result", None)
     session.pop("model", None)
+    session.pop("PatID", None)
+    session.pop("Age", None)
+    session.pop("Hairgrowth", None)
+    session.pop("CycleRI", None)
+    session.pop("WeightGain", None)
+    session.pop("FastFood", None)
     if request.method == "POST":
         if request.files:
             excel = request.files["input"]
@@ -191,6 +204,8 @@ def result():
         CycleRI = session["CycleRI"]
         WeightGain = session["WeightGain"]
         FastFood = session["FastFood"]
+        # Errorint = session['errorint']
+        # print(Errorint)
         if model == "SVM":
             model_name = "SVM"
         else:
@@ -220,7 +235,6 @@ def ovarianresult():
         CASeven = session["CASeven"]
         AeFP = session["AeFP"]
         CAOneTwo = session["CAOneTwo"]
-
         Age = session["Age"]
         if model == "SVM":
             model_name = "SVM"
@@ -243,6 +257,14 @@ def about():
 def pop():
     session.pop("result", None)
     session.pop("model", None)
+    session.pop("result", None)
+    session.pop("model", None)
+    session.pop("PatID", None)
+    session.pop("Age", None)
+    session.pop("Hairgrowth", None)
+    session.pop("CycleRI", None)
+    session.pop("WeightGain", None)
+    session.pop("FastFood", None)
     return redirect(url_for("tool"))
 
 if __name__ == "__main__":

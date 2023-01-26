@@ -18,17 +18,25 @@ def predict_excel_svm(excel):
 
     ws = wb.active
 
-    PatID = ws["A2"].value
+    PatID = ws["A2"].value     
+
+    #Integer Number
     Age = ws["B2"].value
+    CycleLength = ws["U2"].value
+
+    # 1 OR 0
     Hairgrowth = ws["I2"].value
     SkinDarkening = ws["J2"].value
-    CycleRI = ws["T2"].value
-    AvgFsizeLmm = ws["AN2"].value
-    AvgFsizeRmm = ws["AO2"].value
     WeightGain = ws["H2"].value
     FastFood = ws["M2"].value
     Pimple = ws["L2"].value
-    CycleLength = ws["U2"].value
+
+    # 2 OR 4
+    CycleRI = ws["T2"].value
+
+    # Int or Float
+    AvgFsizeLmm = ws["AN2"].value
+    AvgFsizeRmm = ws["AO2"].value
 
     session["PatID"] = PatID
     session["Age"] = Age
@@ -57,16 +65,27 @@ def predict_excel_dt(excel):
 
     
     PatID = ws["A2"].value
+
+    #Integer Number
     Age = ws["B2"].value
+    CycleLength = ws["U2"].value
+
+    if not(isinstance(Age, int) and isinstance(CycleLength, int)):
+        session["errorint"] = "Incorrect Data"
+
+    # 1 OR 0
     Hairgrowth = ws["I2"].value
     SkinDarkening = ws["J2"].value
-    CycleRI = ws["T2"].value
-    AvgFsizeLmm = ws["AN2"].value
-    AvgFsizeRmm = ws["AO2"].value
     WeightGain = ws["H2"].value
     FastFood = ws["M2"].value
     Pimple = ws["L2"].value
-    CycleLength = ws["U2"].value
+
+    # 2 OR 4
+    CycleRI = ws["T2"].value
+
+    # Int or Float
+    AvgFsizeLmm = ws["AN2"].value
+    AvgFsizeRmm = ws["AO2"].value
 
     session["PatID"] = PatID
     session["Age"] = Age
