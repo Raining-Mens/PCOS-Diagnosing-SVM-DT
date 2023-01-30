@@ -58,8 +58,8 @@
 ### Models
 - svm-model -> PCOS-SVM
 - svm-ovarian -> OVARIAN-SVM
-- without-model-svm -> W-PCOS-SVM
-- without-model-tree -> W-PCOS-DT
+- without-model-svm -> W-PCOS-SVM X
+- without-model-tree -> W-PCOS-DT X
 - dt-model -> PCOS-DT
 - dt-ovarian -> OVARIAN-DT
 
@@ -68,7 +68,7 @@
 - OC-positive
 - OC_template
 - PCOS-negative
-- PCOS-positive-error
+- PCOS-positive-error X
 - PCOS-positive
 - PCOS_Template
 
