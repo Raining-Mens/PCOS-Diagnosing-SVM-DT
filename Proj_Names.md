@@ -1,45 +1,45 @@
 # **File Names**
 
 ## Python Files
-- api -> app
-- config -> config
-- predict_excel -> predict_funct
+- api
+- config
+- predict_excel
 
 ## HTML Files
-- index
-- about
-- base
-- dt
-- ovarian-index
-- ovarian-result
-- ovariandt
-- ovariansvm
-- pcos-index
-- results
-- tool
+- index -> Home-Page
+- about -> About-Page
+- base -> Main-Page
+- dt -> PCOS-DT-Page
+- ovarian-index -> Ovarian-Select-Page
+- ovarian-result -> Ovarian-Results-Page
+- ovariandt -> Ovarian-DT-Page
+- ovariansvm -> Ovarian-SVM-Page
+- pcos-index -> PCOS-Select-Page
+- results -> PCOS-Results-Page
+- tool -> PCOS-SVM-Page
 
 ## CSS Files
-- about
-- results
-- style
+- about -> About-Page
+- results -> Results-Page
+- style -> Designs
 
 ## Javascript Files
 - preview
 
 ## Asset Files
 ### Images
-- background-pcos
-- background-pcos1
-- background-repeat
-- background-repeat
-- blue title
-- blue
-- logo white
-- ovary
-- placehold
-- placeholder
-- white
-- ovyou-icon
+- background-pcos -> Background-Home
+- background-pcos1 - X
+- background-repeat - X
+- background-repeat  -> About-Background
+- blue title - Ovyou-Title
+- blue -Ovyou-Logo-Blue
+- logo white - X
+- ovary - X
+- placehold -> Sample-Diagnosis
+- placeholder - x?
+- white -> Ovyou-Logo-White
+- ovyou-icon - Ovyou-icon-pink
 
 ### Charts and Graphs in About Page
 - dt-balance
@@ -50,25 +50,25 @@
 
 ### Developes in About Page
 - Jayson
-- Karl
+- Karl - X
 - Karla
 - Kristian
 - Lance
 
 ### Models
-- svm-model -> PCOS-SVM
-- svm-ovarian -> OVARIAN-SVM
-- without-model-svm -> W-PCOS-SVM X
-- without-model-tree -> W-PCOS-DT X
-- dt-model -> PCOS-DT
-- dt-ovarian -> OVARIAN-DT
+- svm-model
+- svm-ovarian
+- without-model-svm
+- without-model-tree
+- dt-model
+- dt-ovarian
 
 ### Uploads
 - OC-negative
 - OC-positive
 - OC_template
 - PCOS-negative
-- PCOS-positive-error X
+- PCOS-positive-error
 - PCOS-positive
 - PCOS_Template
 
