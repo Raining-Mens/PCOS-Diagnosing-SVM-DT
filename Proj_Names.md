@@ -1,9 +1,9 @@
 # **File Names**
 
 ## Python Files
-- api
-- config
-- predict_excel
+- api -> app
+- config -> config
+- predict_excel -> predict_funct
 
 ## HTML Files
 - index
@@ -56,12 +56,12 @@
 - Lance
 
 ### Models
-- svm-model
-- svm-ovarian
-- without-model-svm
-- without-model-tree
-- dt-model
-- dt-ovarian
+- svm-model -> PCOS-SVM
+- svm-ovarian -> OVARIAN-SVM
+- without-model-svm -> W-PCOS-SVM
+- without-model-tree -> W-PCOS-DT
+- dt-model -> PCOS-DT
+- dt-ovarian -> OVARIAN-DT
 
 ### Uploads
 - OC-negative
