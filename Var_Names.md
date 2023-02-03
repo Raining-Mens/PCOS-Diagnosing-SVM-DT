@@ -28,9 +28,9 @@
 - CAO
 - AFL -> WEG
 - AFR -> FAF
-- ovarianresult ->
+- ovarianresult -> ovarian_result
 - CAT ->
-- about
+- about -> about_page
 
 
 - predict_excel_svm -> predict_pcos_svm

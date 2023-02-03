@@ -1,3 +1,10 @@
+# Tool for thesis entitled "An Ensemble ADASYN-ENN Resampling Approach in Diagnosing PCOS"
+# Developers:
+#     Colasino, Jayson Kim
+#     Fatallo, Lance Raphael
+#     Gatchalian, Jan Kristian
+#     Pascua, Karl Melo
+
 from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import pickle
 from openpyxl.workbook import Workbook
@@ -19,7 +26,7 @@ app.config["ALLOWED_EXCEL_EXTENSIONS"] = ["XLSX", "CSV", "XLS"]
 my_excel = os.path.join(THIS_FOLDER, "static/assets/uploads")
 my_assets = os.path.join(THIS_FOLDER, "static/assets")
 
-
+# Functionality to host the app using github workflow
 @app.route('/git_update', methods=['POST'])
 def git_update():
     repo = git.Repo('./PCOS-Diagnosing-SVM-DT')
@@ -29,7 +36,7 @@ def git_update():
     origin.pull()
     return '', 200
 
-
+# Main route of the app
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -150,7 +157,7 @@ def ovarian_svm():
             output = predict_ovarian_svm(excel)
             session['result'] = int(output)
 
-            return redirect(url_for("ovarianresult"))
+            return redirect(url_for("ovarian_result"))
     else:
         if "result" in session:
             return redirect(url_for("pop"))
@@ -187,7 +194,7 @@ def ovarian_dt():
             output = predict_ovarian_dt(excel)
             session['result'] = int(output)
 
-            return redirect(url_for("ovarianresult"))
+            return redirect(url_for("ovarian_result"))
     else:
         if "result" in session:
             return redirect(url_for("pop"))
@@ -227,8 +234,8 @@ def pcos_results():
         return redirect(url_for("pcos_svm"))
 
 
-@app.route("/ovarianresult", methods=["GET", "POST"])
-def ovarianresult():
+@app.route("/ovarian_result", methods=["GET", "POST"])
+def ovarian_result():
     save_excel = session['save_excel']
     book = load_workbook(open(os.path.join(my_excel, save_excel), 'rb'))
     sheet = book.active
@@ -259,9 +266,9 @@ def ovarianresult():
         return redirect(url_for("pcos_svm"))
 
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
+@app.route("/about_page")
+def about_page():
+    return render_template("about_page.html")
 
 
 @app.route("/pop")
