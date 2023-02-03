@@ -6,17 +6,17 @@
 - predict_excel - predict_funct
 
 ## HTML Files
-- index -> Home-Page
-- about -> About-Page
-- base -> Main-Page
-- dt -> PCOS-DT-Page
-- ovarian-index -> Ovarian-Select-Page
-- ovarian-result -> Ovarian-Results-Page
-- ovariandt -> Ovarian-DT-Page
-- ovariansvm -> Ovarian-SVM-Page
-- pcos-index -> PCOS-Select-Page
-- results -> PCOS-Results-Page
-- tool -> PCOS-SVM-Page
+- index -> home-page
+- about -> about-page
+- base -> main-page
+- dt -> pcos-dt-page
+- ovarian-index -> ovarian-select-page
+- ovarian-result -> ovarian-results-page
+- ovariandt -> ovarian-dt-page
+- ovariansvm -> ovarian-svm-page
+- pcos-index -> pcos-select-page
+- results -> pcos-results-page
+- tool -> pcos-svm-page
 
 ## CSS Files
 - about -> about-page
@@ -28,18 +28,18 @@
 
 ## Asset Files
 ### Images
-- background-pcos -> Background-Home
-- background-pcos1 - X
-- background-repeat - X
-- background-repeat  -> About-Background
-- blue title - Ovyou-Title
-- blue -Ovyou-Logo-Blue
-- logo white - X
-- ovary - X
-- placehold -> Sample-Diagnosis
-- placeholder - x?
-- white -> Ovyou-Logo-White
-- ovyou-icon - Ovyou-icon-pink
+- background-pcos -> background-home
+- background-pcos1 -> X
+- background-repeat -> X
+- background-repeat  -> about-background
+- blue title - ovyou-title
+- blue -> ovyou-logo-blue
+- logo white -> X
+- ovary -> X
+- placehold -> sample-diagnosis
+- placeholder -> x?
+- white -> ovyou-logo-white
+- ovyou-icon -> ovyou-icon-pink
 
 ### Charts and Graphs in About Page
 - dt-balance
