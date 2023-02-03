@@ -57,7 +57,7 @@ def allowed_excel(filename):
         return False
 
 
-@app.route("/tool", methods=["GET", "POST"])
+@app.route("/pcos_svm", methods=["GET", "POST"])
 def tool():
     session.pop("result", None)
     session.pop("model", None)
@@ -78,7 +78,7 @@ def tool():
                 excel.save(os.path.join(my_excel, filename))
                 session['save_excel'] = filename
 
-            output = predict_excel_svm(excel)
+            output = predict_pcos_svm(excel)
             session['result'] = int(output)
 
             return redirect(url_for("result"))
@@ -88,8 +88,8 @@ def tool():
     return render_template("tool.html")
 
 
-@app.route("/dt", methods=["GET", "POST"])
-def dt():
+@app.route("/pcos_dt", methods=["GET", "POST"])
+def pcos_dt():
     session.pop("result", None)
     session.pop("model", None)
     if request.method == "POST":
@@ -109,7 +109,7 @@ def dt():
                 excel.save(os.path.join(my_excel, filename))
                 session['save_excel'] = filename
 
-            output = predict_excel_dt(excel)
+            output = predict_pcos_dt(excel)
             session['result'] = int(output)
 
             return redirect(url_for("result"))
@@ -119,8 +119,8 @@ def dt():
     return render_template("dt.html")
 
 
-@app.route("/ovariansvm", methods=["GET", "POST"])
-def ovariansvm():
+@app.route("/ovarian_svm", methods=["GET", "POST"])
+def ovarian_svm():
     session.pop("result", None)
     session.pop("model", None)
     session.pop("PatID", None)
@@ -147,7 +147,7 @@ def ovariansvm():
                 excel.save(os.path.join(my_excel, filename))
                 session['save_excel'] = filename
 
-            output = ovarian_svm(excel)
+            output = predict_ovarian_svm(excel)
             session['result'] = int(output)
 
             return redirect(url_for("ovarianresult"))
@@ -157,8 +157,8 @@ def ovariansvm():
     return render_template("ovariansvm.html")
 
 
-@app.route("/ovariandt", methods=["GET", "POST"])
-def ovariandt():
+@app.route("/ovarian_dt", methods=["GET", "POST"])
+def ovarian_dt():
     session.pop("result", None)
     session.pop("model", None)
     session.pop("PatID", None)
@@ -184,7 +184,7 @@ def ovariandt():
                 excel.save(os.path.join(my_excel, filename))
                 session['save_excel'] = filename
 
-            output = ovarian_dt(excel)
+            output = predict_ovarian_dt(excel)
             session['result'] = int(output)
 
             return redirect(url_for("ovarianresult"))
@@ -194,8 +194,8 @@ def ovariandt():
     return render_template("ovariandt.html")
 
 
-@app.route("/result", methods=["GET", "POST"])
-def result():
+@app.route("/pcos_results", methods=["GET", "POST"])
+def pcos_results():
     save_excel = session['save_excel']
     book = load_workbook(open(os.path.join(my_excel, save_excel), 'rb'))
     sheet = book.active
@@ -219,12 +219,12 @@ def result():
         print(result)
         if result == 1:
             return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
-                                   HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
+                                   HAIR=Hairgrowth, CYC=CycleRI, WEG=WeightGain, FAF=FastFood)
         elif result == 0:
             return render_template("results.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
-                                   HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
+                                   HAIR=Hairgrowth, CYC=CycleRI, WEG=WeightGain, FAF=FastFood)
     else:
-        return redirect(url_for("tool"))
+        return redirect(url_for("pcos_svm"))
 
 
 @app.route("/ovarianresult", methods=["GET", "POST"])
@@ -251,12 +251,12 @@ def ovarianresult():
         print(result)
         if result == 0:
             return render_template("ovarian-result.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, AGE=Age,
-                                   HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
+                                   MENO=Menopause, CAN=CANine, CAS=CASeven, AFP=AeFP, CAT=CAOneTwo)
         elif result == 1:
             return render_template("ovarian-result.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, AGE=Age,
-                                   HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
+                                   MENO=Menopause, CAN=CANine, CAS=CASeven, AFP=AeFP, CAT=CAOneTwo)
     else:
-        return redirect(url_for("tool"))
+        return redirect(url_for("pcos_svm"))
 
 
 @app.route("/about")
@@ -276,7 +276,7 @@ def pop():
     session.pop("CycleRI", None)
     session.pop("WeightGain", None)
     session.pop("FastFood", None)
-    return redirect(url_for("tool"))
+    return redirect(url_for("pcos_svm"))
 
 
 if __name__ == "__main__":
