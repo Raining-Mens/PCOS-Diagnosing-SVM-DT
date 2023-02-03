@@ -3,3 +3,9 @@ static/assets/uploads/PCOS_Template.xlsx
 __pycache__/predict_excel.cpython-39.pyc
 __pycache__/config.cpython-39.pyc
 static/assets/uploads/.~lock.PCOS_positive.xlsx#
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/PCOS-Diagnosing-SVM-DT.iml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
