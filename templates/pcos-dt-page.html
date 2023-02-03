@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}OvYou · PCOS Decision Tree{% endblock %}
+
+</head>
+
+<body>
+    {% block content %}
+    <!-- Tool -->
+    <div class="main-cont-tool">
+        <form action="/dt" method="POST" enctype="multipart/form-data">
+            <div class="container-main row">
+                <div class="container-io col m-2">
+                    <div class="file-loading">
+                        <div class="tool-input">
+                            <input type="file" id="input" name="input"
+                                accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                                onClick="preview(input)">
+                        </div>
+                    </div>
+                    <div id="tooloutput">
+                        <div class="tbl-prev">
+                            <table id="tbl-data"></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-cont col m-2">
+                    <div class="cont-cont">
+                        <p>PCOS<br>PREDICTION<br>TOOL</p>
+                        <button class="startBtn" type="submit" href="{{ url_for('result')}}">Start</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
