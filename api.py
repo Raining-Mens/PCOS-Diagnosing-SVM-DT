@@ -80,7 +80,7 @@ def tool():
     else:    
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("tool.html")
+    return render_template("pcos-svm-page.html")
 
 
 @app.route("/dt", methods=["GET", "POST"])
@@ -112,7 +112,7 @@ def dt():
     else:    
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("dt.html")
+    return render_template("pcos-dt-page.html")
 
 
 @app.route("/ovariansvm", methods=["GET", "POST"])
@@ -150,7 +150,7 @@ def ovariansvm():
     else:    
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("ovariansvm.html")
+    return render_template("ovarian-svm-page.html")
 
 @app.route("/ovariandt", methods=["GET", "POST"])
 def ovariandt():
@@ -186,7 +186,7 @@ def ovariandt():
     else:    
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("ovariandt.html")
+    return render_template("ovarian-dt-page.html")
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
@@ -213,9 +213,9 @@ def result():
             
         print(result)
         if result == 1:
-            return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
+            return render_template("pcos-results-page.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
         elif result == 0:
-            return render_template("results.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
+            return render_template("pcos-results-page.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age, HAIR=Hairgrowth, CYC=CycleRI, AFL=WeightGain, AFR=FastFood)
     else:
         return redirect(url_for("tool"))
 
@@ -243,15 +243,15 @@ def ovarianresult():
             
         print(result)
         if result == 0:
-            return render_template("ovarian-result.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
+            return render_template("ovarian-results-page.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
         elif result == 1:
-            return render_template("ovarian-result.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
+            return render_template("ovarian-results-page.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, AGE=Age, HAIR=Menopause, CYC=CANine, AFL=CASeven, AFR=AeFP, CAT=CAOneTwo)
     else:
         return redirect(url_for("tool"))
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about-page.html")
 
 @app.route("/pop")
 def pop():
