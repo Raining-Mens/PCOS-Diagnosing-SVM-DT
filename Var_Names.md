@@ -1,8 +1,8 @@
 # **Variable Names**
 
 ## api -> app
-- ovarianindex
-- pcosindex
+- ovarianindex -> ovarian_index
+- pcosindex -> pcos_index
 - tool
 - result
 - model
