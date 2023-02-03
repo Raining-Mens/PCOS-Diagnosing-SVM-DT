@@ -30,15 +30,15 @@ def git_update():
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("home-page.html")
 
 @app.route("/ovarianindex")
 def ovarianindex():
-    return render_template("ovarian-index.html")
+    return render_template("ovarian-home-page.html")
 
 @app.route("/pcosindex")
 def pcosindex():
-    return render_template("pcos-index.html")
+    return render_template("pcos-home-page.html")
 
 def allowed_excel(filename):
 
