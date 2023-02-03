@@ -22,6 +22,37 @@ def predict_excel_svm(excel):
 
     #Integer Number
     Age = ws["B2"].value
+    Weight = ws["C2"].value
+    Height = ws["D2"].value
+    Hip = ws["E2"].value
+    Waist = ws["H2"].value
+    WaistRatio = ws["G2"].value
+    HairLoss = ws["K2"].value
+    RegExer = ws["N2"].value
+    Bmi = ws["O2"].value
+    BloodGrp = ws["P2"].value
+    PulseRate = ws["Q2"].value
+    Rr = ws["R2"].value
+    Hb = ws["S2"].value
+    Marraige = ws["V2"].value
+    Pregnant = ws["W2"].value
+    Absorptions = ws["X2"].value
+    betaHCG1 = ws["Y2"].value
+    betaHCG2 = ws["Z2"].value
+    Fsh = ws["AA2"].value
+    Lh = ws["AB2"].value
+    FshLH = ws["AC2"].value
+    Tsh = ws["AD2"].value
+    Amh = ws["AE2"].value
+    Prl = ws["AF2"].value
+    VitD3 = ws["AG2"].value
+    Prg = ws["AH2"].value
+    Rbs = ws["AI2"].value
+    BPSys = ws["AJ2"].value
+    BPDias = ws["AK2"].value
+    FoliL = ws["AL2"].value
+    FoliR = ws["AM2"].value
+    Endo = ws["AP2"].value
     CycleLength = ws["U2"].value
 
     # 1 OR 0
@@ -46,15 +77,17 @@ def predict_excel_svm(excel):
     session["FastFood"] = FastFood
 
 
-    model = pickle.load(open(os.path.join(my_assets, "without-model-svm.pkl"), 'rb'))
+    model = pickle.load(open(os.path.join(my_assets, "model-svm.pkl"), 'rb'))
     session['model'] = "SVM"
 
 
     makeprediction = model.predict([[Hairgrowth, SkinDarkening,
-                                    WeightGain, CycleRI, FastFood, Pimple,
-                                    CycleLength, AvgFsizeLmm, AvgFsizeRmm]])
+                                    WeightGain,  
+                                    CycleLength, AvgFsizeLmm, AvgFsizeRmm,
+                                    FastFood, Pimple, CycleRI
+                                    ]])
 
-    output = round(makeprediction[0], 2)
+    output = round(makeprediction[0])
 
     return(output)
 
@@ -95,7 +128,7 @@ def predict_excel_dt(excel):
     session["FastFood"] = FastFood
 
 
-    model = pickle.load(open(os.path.join(my_assets, "without-model-tree.pkl"), 'rb'))
+    model = pickle.load(open(os.path.join(my_assets, "model-svm.pkl"), 'rb'))
     session['model'] = "DT"
 
 

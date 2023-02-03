@@ -1,9 +1,9 @@
 # **File Names**
 
 ## Python Files
-- api
-- config
-- predict_excel
+- api -> app
+- config -> config
+- predict_excel - predict_funct
 
 ## HTML Files
 - index -> Home-Page
@@ -19,9 +19,9 @@
 - tool -> PCOS-SVM-Page
 
 ## CSS Files
-- about -> About-Page
-- results -> Results-Page
-- style -> Designs
+- about -> about-page
+- results -> results-page
+- style -> main
 
 ## Javascript Files
 - preview
