@@ -41,7 +41,7 @@ def git_update():
 # The user will select which disease to classify
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("home-page.html")
 
 # Index page for the Ovarian Cancer upon selecting the disease
 @app.route("/ovarian_index")
@@ -68,7 +68,7 @@ def allowed_excel(filename):
 
 # Classifier page of the PCOS and when the user select the SVM classifier
 @app.route("/pcos_svm", methods=["GET", "POST"])
-def tool():
+def pcos_svm():
     # Method to delete any existing session data before classifying a new set of data
     session.pop("result", None)
     session.pop("model", None)
@@ -96,7 +96,7 @@ def tool():
     else:
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("tool.html")
+    return render_template("pcos-svm-page.html")
 
 # Classifier page of the PCOS and when the user select the Decision Tree classifier
 @app.route("/pcos_dt", methods=["GET", "POST"])
@@ -127,7 +127,7 @@ def pcos_dt():
     else:
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("dt.html")
+    return render_template("pcos-dt-page.html")
 
 # Classifier page of the Ovarian Cancer and when the user select the SVM classifier
 @app.route("/ovarian_svm", methods=["GET", "POST"])
@@ -159,7 +159,7 @@ def ovarian_svm():
     else:
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("ovariansvm.html")
+    return render_template("ovarian-svm-page.html")
 
 # Classifier page of the Ovarian Cancer and when the user select the Decision Tree classifier
 @app.route("/ovarian_dt", methods=["GET", "POST"])
@@ -190,7 +190,7 @@ def ovarian_dt():
     else:
         if "result" in session:
             return redirect(url_for("pop"))
-    return render_template("ovariandt.html")
+    return render_template("ovarian-dt-page.html")
 
 # The results page of PCOS classifier
 @app.route("/pcos_results", methods=["GET", "POST"])
@@ -216,10 +216,10 @@ def pcos_results():
 
         print(result)
         if result == 1:
-            return render_template("results.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
+            return render_template("pcos-results-page", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
                                    HAIR=Hairgrowth, CYC=CycleRI, WEG=WeightGain, FAF=FastFood)
         elif result == 0:
-            return render_template("results.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
+            return render_template("pcos-results-page", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
                                    HAIR=Hairgrowth, CYC=CycleRI, WEG=WeightGain, FAF=FastFood)
     else:
         return redirect(url_for("pcos_svm"))
@@ -248,10 +248,10 @@ def ovarian_result():
 
         print(result)
         if result == 0:
-            return render_template("ovarian-result.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, AGE=Age,
+            return render_template("ovarian-results-page.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, AGE=Age,
                                    MENO=Menopause, CAN=CANine, CAS=CASeven, AFP=AeFP, CAT=CAOneTwo)
         elif result == 1:
-            return render_template("ovarian-result.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, AGE=Age,
+            return render_template("ovarian-results-page.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, AGE=Age,
                                    MENO=Menopause, CAN=CANine, CAS=CASeven, AFP=AeFP, CAT=CAOneTwo)
     else:
         return redirect(url_for("pcos_svm"))
