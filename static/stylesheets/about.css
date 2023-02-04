@@ -8,7 +8,7 @@
     padding-bottom: 50px;
 }
 
-.backg-about {
+.background-about {
     display: flex;
     flex-wrap: wrap;
     height: auto;
@@ -17,7 +17,7 @@
     opacity: 0.9;
 }
 
-.title h1, .heads {
+.title h1, .heading {
     font-family: "Montserrat";
     font-weight: 700;
     color: #fa7470;

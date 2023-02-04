@@ -120,14 +120,14 @@ header {
     font-weight: 500;
 }
 
-.strbtn {
+.start-button {
     display: inline-block;
     position: absolute;
     margin-top: 10px;
     margin-left: 8px;
 }
 
-.startBtn {
+.choose-button {
     font-family: "Montserrat";
     font-weight: bold;
     color: #fff;
@@ -140,7 +140,7 @@ header {
     margin-left: 8px; */
 }
 
-.startBtn:hover {
+.choose-button:hover {
     background-color: #d93d4a;
 }
 
