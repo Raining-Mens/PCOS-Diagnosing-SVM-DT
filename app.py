@@ -46,12 +46,12 @@ def home():
 # Index page for the Ovarian Cancer upon selecting the disease
 @app.route("/ovarian_index")
 def ovarian_index():
-    return render_template("ovarian-index.html")
+    return render_template("ovarian-select-page.html")
 
 # Index page for the PCOS upon selecting the disease
 @app.route("/pcos_index")
 def pcos_index():
-    return render_template("pcos-index.html")
+    return render_template("pcos-select-page.html")
 
 # Function to accept excel files by their extension
 # filename contains the filename of the uploaded excel file
