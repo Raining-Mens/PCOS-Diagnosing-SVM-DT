@@ -5,6 +5,7 @@
 #     Gatchalian, Jan Kristian
 #     Pascua, Karl Melo
 
+# Main app of our Tool
 from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import pickle
 from openpyxl.workbook import Workbook
@@ -37,35 +38,38 @@ def git_update():
     return '', 200
 
 # Main route of the app
+# The user will select which disease to classify
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
+# Index page for the Ovarian Cancer upon selecting the disease
 @app.route("/ovarian_index")
 def ovarian_index():
     return render_template("ovarian-index.html")
 
-
+# Index page for the PCOS upon selecting the disease
 @app.route("/pcos_index")
 def pcos_index():
     return render_template("pcos-index.html")
 
-
+# Function to accept excel files by their extension
+# filename contains the filename of the uploaded excel file
 def allowed_excel(filename):
     if not "." in filename:
         return False
 
     ext = filename.rsplit(".", 1)[1]
-
+# If the excel file consist of the allowed extensions like .xlxs, .csv, .xlx
     if ext.upper() in app.config["ALLOWED_EXCEL_EXTENSIONS"]:
         return True
     else:
         return False
 
-
+# Classifier page of the PCOS and when the user select the SVM classifier
 @app.route("/pcos_svm", methods=["GET", "POST"])
 def tool():
+    # Method to delete any existing session data before classifying a new set of data
     session.pop("result", None)
     session.pop("model", None)
     if request.method == "POST":
@@ -94,7 +98,7 @@ def tool():
             return redirect(url_for("pop"))
     return render_template("tool.html")
 
-
+# Classifier page of the PCOS and when the user select the Decision Tree classifier
 @app.route("/pcos_dt", methods=["GET", "POST"])
 def pcos_dt():
     session.pop("result", None)
@@ -125,17 +129,11 @@ def pcos_dt():
             return redirect(url_for("pop"))
     return render_template("dt.html")
 
-
+# Classifier page of the Ovarian Cancer and when the user select the SVM classifier
 @app.route("/ovarian_svm", methods=["GET", "POST"])
 def ovarian_svm():
     session.pop("result", None)
     session.pop("model", None)
-    session.pop("PatID", None)
-    session.pop("Age", None)
-    session.pop("Hairgrowth", None)
-    session.pop("CycleRI", None)
-    session.pop("WeightGain", None)
-    session.pop("FastFood", None)
 
     if request.method == "POST":
         if request.files:
@@ -163,17 +161,11 @@ def ovarian_svm():
             return redirect(url_for("pop"))
     return render_template("ovariansvm.html")
 
-
+# Classifier page of the Ovarian Cancer and when the user select the Decision Tree classifier
 @app.route("/ovarian_dt", methods=["GET", "POST"])
 def ovarian_dt():
     session.pop("result", None)
     session.pop("model", None)
-    session.pop("PatID", None)
-    session.pop("Age", None)
-    session.pop("Hairgrowth", None)
-    session.pop("CycleRI", None)
-    session.pop("WeightGain", None)
-    session.pop("FastFood", None)
     if request.method == "POST":
         if request.files:
             excel = request.files["input"]
@@ -200,7 +192,7 @@ def ovarian_dt():
             return redirect(url_for("pop"))
     return render_template("ovariandt.html")
 
-
+# The results page of PCOS classifier
 @app.route("/pcos_results", methods=["GET", "POST"])
 def pcos_results():
     save_excel = session['save_excel']
@@ -216,8 +208,7 @@ def pcos_results():
         CycleRI = session["CycleRI"]
         WeightGain = session["WeightGain"]
         FastFood = session["FastFood"]
-        # Errorint = session['errorint']
-        # print(Errorint)
+
         if model == "SVM":
             model_name = "SVM"
         else:
@@ -233,7 +224,7 @@ def pcos_results():
     else:
         return redirect(url_for("pcos_svm"))
 
-
+# The results page of Ovarian Cancer classifier
 @app.route("/ovarian_result", methods=["GET", "POST"])
 def ovarian_result():
     save_excel = session['save_excel']
@@ -265,12 +256,12 @@ def ovarian_result():
     else:
         return redirect(url_for("pcos_svm"))
 
-
+# Route for the About Page
 @app.route("/about_page")
 def about_page():
     return render_template("about_page.html")
 
-
+# Route for the pop method that will delete any existing sessions
 @app.route("/pop")
 def pop():
     session.pop("result", None)

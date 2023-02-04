@@ -1,3 +1,5 @@
+# Separate function file of predicting the data from the excel then producing the results
+
 from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import pickle
 from openpyxl.workbook import Workbook
@@ -12,7 +14,7 @@ ASSETS = "static/assets"
 my_excel = os.path.join(THIS_FOLDER, "static/assets/uploads")
 my_assets = os.path.join(THIS_FOLDER, "static/assets")
 
-
+# Function to predict the PCOS SVM classifier
 def predict_pcos_svm(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -50,6 +52,7 @@ def predict_pcos_svm(excel):
     output = round(prediction[0])
     return(output)
 
+# Function to predict the PCOS Decision Tree classifier
 def predict_pcos_dt(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -88,6 +91,7 @@ def predict_pcos_dt(excel):
     output = round(prediction[0])
     return(output)
 
+# Function to predict the Ovarian Cancer SVM classifier
 def predict_ovarian_svm(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -121,7 +125,7 @@ def predict_ovarian_svm(excel):
     output = round(prediction[0])
     return(output)
 
-
+# Function to predict the Ovarian Cancer Decision Tree classifier
 def predict_ovarian_dt(excel):
     wb = load_workbook(excel)
     ws = wb.active
