@@ -92,7 +92,7 @@ def pcos_svm():
             output = predict_pcos_svm(excel)
             session['result'] = int(output)
 
-            return redirect(url_for("result"))
+            return redirect(url_for("pcos_results"))
     else:
         if "result" in session:
             return redirect(url_for("pop"))
@@ -123,7 +123,7 @@ def pcos_dt():
             output = predict_pcos_dt(excel)
             session['result'] = int(output)
 
-            return redirect(url_for("result"))
+            return redirect(url_for("pcos_results"))
     else:
         if "result" in session:
             return redirect(url_for("pop"))
@@ -216,10 +216,10 @@ def pcos_results():
 
         print(result)
         if result == 1:
-            return render_template("pcos-results-page", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
+            return render_template("pcos-results-page.html", RESULTS="POSITIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
                                    HAIR=Hairgrowth, CYC=CycleRI, WEG=WeightGain, FAF=FastFood)
         elif result == 0:
-            return render_template("pcos-results-page", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
+            return render_template("pcos-results-page.html", RESULTS="NEGATIVE", EXCEL=sheet, MODEL=model_name, ID=PatID, AGE=Age,
                                    HAIR=Hairgrowth, CYC=CycleRI, WEG=WeightGain, FAF=FastFood)
     else:
         return redirect(url_for("pcos_svm"))

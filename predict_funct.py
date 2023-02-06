@@ -39,7 +39,7 @@ def predict_pcos_svm(excel):
     session["FastFood"] = FastFood
 
 
-    model = pickle.load(open(os.path.join(my_assets, "model-svm.pkl"), 'rb'))
+    model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
     session['model'] = "SVM"
 
 
@@ -78,7 +78,7 @@ def predict_pcos_dt(excel):
     session["FastFood"] = FastFood
 
 
-    model = pickle.load(open(os.path.join(my_assets, "model-svm.pkl"), 'rb'))
+    model = pickle.load(open(os.path.join(my_assets, "dt-model.pkl"), 'rb'))
     session['model'] = "DT"
 
 
