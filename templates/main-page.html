@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets//ovyou-icon.ico') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets//ovyou-icon-pink.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets//style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets//results.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets//about.css') }}">
@@ -22,10 +22,10 @@
     <!-- NAVBAR -->
     <div class="background">
         <div id="back">
-            <img src="{{ url_for('static', filename='assets/background-pcos1.png') }}" class="img-fluid" alt="ovary img" />  
+            <img src="{{ url_for('static', filename='assets/background-home.png') }}" class="img-fluid" alt="ovary img" />  
         </div>
         <header>
-            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='assets/blue title.png') }}" class="logo" alt="logo img" /></a>
+            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='assets/ovyou-title.png') }}" class="logo" alt="logo img" /></a>
             <nav class="up-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -57,7 +57,7 @@
                     <p>After the evaluation, it will show the results on bottom whether it is <p1>POSITIVE</p1> or <p1>NEGATIVE</p1>.<br>Along with the details of which model has been used and some details about the patient's data.</p>
                 </div>
                 <div class="modal-col2">
-                    <img src="{{ url_for('static', filename='assets/placehold.png') }}" class="img-fluid" alt="placeholder img" />
+                    <img src="{{ url_for('static', filename='assets/sample-diagnosis.png') }}" class="img-fluid" alt="placeholder img" />
                 </div>
             </div>
             
