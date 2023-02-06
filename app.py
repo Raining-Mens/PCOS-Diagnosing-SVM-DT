@@ -259,7 +259,7 @@ def ovarian_result():
 # Route for the About Page
 @app.route("/about_page")
 def about_page():
-    return render_template("about_page.html")
+    return render_template("about-page.html")
 
 # Route for the pop method that will delete any existing sessions
 @app.route("/pop")
