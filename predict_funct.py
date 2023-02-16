@@ -1,13 +1,13 @@
 # Separate function file of predicting the data from the excel then producing the results
 
+# Importing modules
 from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import pickle
-from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 from werkzeug.utils import secure_filename
 import os
-import git
 
+# Configurations
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 EXCEL_UPLOADS = "static/assets/uploads"
 ASSETS = "static/assets"
@@ -15,12 +15,11 @@ my_excel = os.path.join(THIS_FOLDER, "static/assets/uploads")
 my_assets = os.path.join(THIS_FOLDER, "static/assets")
 
 # Function to predict the PCOS SVM classifier
-
-
 def predict_pcos_svm(excel):
-    wb = load_workbook(excel)
+    wb = load_workbook(excel) # Loading the excel file
     ws = wb.active
 
+    # Reading the excel file's cell value and assigning a variable
     PatID = ws["A2"].value
     Age = ws["B2"].value
     CycleLength = ws["U2"].value
@@ -33,6 +32,7 @@ def predict_pcos_svm(excel):
     AvgFsizeLmm = ws["AN2"].value
     AvgFsizeRmm = ws["AO2"].value
 
+    # Storing the values to a session to be displayed on the results page
     session["PatID"] = PatID
     session["Age"] = Age
     session["Hairgrowth"] = Hairgrowth
@@ -40,21 +40,21 @@ def predict_pcos_svm(excel):
     session["WeightGain"] = WeightGain
     session["FastFood"] = FastFood
 
+    # Loading the machine learning model to be used
     model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
-    session['model'] = "SVM"
+    session['model'] = "SVM" # Storing the model's name to a session
 
+    # Prediction function using the variables from the cell values
     prediction = model.predict([[Hairgrowth, SkinDarkening,
                                  WeightGain, CycleLength,
                                  AvgFsizeLmm, AvgFsizeRmm,
                                  FastFood, Pimple, CycleRI
                                  ]])
 
-    output = round(prediction[0])
+    output = round(prediction[0]) # Rounding the prediction from float to a whole number then storing it to 'output'
     return(output)
 
 # Function to predict the PCOS Decision Tree classifier
-
-
 def predict_pcos_dt(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -91,8 +91,6 @@ def predict_pcos_dt(excel):
     return(output)
 
 # Function to predict the Ovarian Cancer SVM classifier
-
-
 def predict_ovarian_svm(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -125,8 +123,6 @@ def predict_ovarian_svm(excel):
     return(output)
 
 # Function to predict the Ovarian Cancer Decision Tree classifier
-
-
 def predict_ovarian_dt(excel):
     wb = load_workbook(excel)
     ws = wb.active
