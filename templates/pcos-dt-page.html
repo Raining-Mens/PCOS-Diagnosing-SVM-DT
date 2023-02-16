@@ -7,11 +7,12 @@
 
   <body>
     {% block content %}
-    <!-- Tool -->
+    <!-- PCOS DECISION TREE TOOL -->
     <div class="main-cont-tool">
       <form action="/pcos_dt" method="POST" enctype="multipart/form-data">
         <div class="container-main row">
           <div class="container-io col m-2">
+            <!-- EXCEL FILE INPUT -->
             <div class="file-loading">
               <div class="tool-input">
                 <input
@@ -23,6 +24,7 @@
                 />
               </div>
             </div>
+            <!-- TABLE PREVIEW -->
             <div id="tooloutput">
               <div class="tbl-prev">
                 <table id="tbl-data"></table>
