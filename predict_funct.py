@@ -15,6 +15,8 @@ my_excel = os.path.join(THIS_FOLDER, "static/assets/uploads")
 my_assets = os.path.join(THIS_FOLDER, "static/assets")
 
 # Function to predict the PCOS SVM classifier
+
+
 def predict_pcos_svm(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -38,26 +40,25 @@ def predict_pcos_svm(excel):
     session["WeightGain"] = WeightGain
     session["FastFood"] = FastFood
 
-
     model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
     session['model'] = "SVM"
 
-
     prediction = model.predict([[Hairgrowth, SkinDarkening,
-                                    WeightGain, CycleLength,
-                                    AvgFsizeLmm, AvgFsizeRmm,
-                                    FastFood, Pimple, CycleRI
-                                    ]])
+                                 WeightGain, CycleLength,
+                                 AvgFsizeLmm, AvgFsizeRmm,
+                                 FastFood, Pimple, CycleRI
+                                 ]])
 
     output = round(prediction[0])
     return(output)
 
 # Function to predict the PCOS Decision Tree classifier
+
+
 def predict_pcos_dt(excel):
     wb = load_workbook(excel)
     ws = wb.active
 
-    
     PatID = ws["A2"].value
     Age = ws["B2"].value
     CycleLength = ws["U2"].value
@@ -77,21 +78,21 @@ def predict_pcos_dt(excel):
     session["WeightGain"] = WeightGain
     session["FastFood"] = FastFood
 
-
     model = pickle.load(open(os.path.join(my_assets, "dt-model.pkl"), 'rb'))
     session['model'] = "DT"
 
-
     prediction = model.predict([[Hairgrowth, SkinDarkening,
-                                    WeightGain, CycleLength,
-                                    AvgFsizeLmm, AvgFsizeRmm,
-                                    FastFood, Pimple, CycleRI
-                                    ]])
+                                 WeightGain, CycleLength,
+                                 AvgFsizeLmm, AvgFsizeRmm,
+                                 FastFood, Pimple, CycleRI
+                                 ]])
 
     output = round(prediction[0])
     return(output)
 
 # Function to predict the Ovarian Cancer SVM classifier
+
+
 def predict_ovarian_svm(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -112,20 +113,20 @@ def predict_ovarian_svm(excel):
     session["AeFP"] = AeFP
     session["CAOneTwo"] = CAOneTwo
 
-
     model = pickle.load(open(os.path.join(my_assets, "svm-ovarian.pkl"), 'rb'))
     session['model'] = "SVM"
 
-
     prediction = model.predict([[Age, Menopause, CANine,
-                                    CASeven, AeFP, CAOneTwo,
-                                    HEFour, CEyA
-                                    ]])
+                                 CASeven, AeFP, CAOneTwo,
+                                 HEFour, CEyA
+                                 ]])
 
     output = round(prediction[0])
     return(output)
 
 # Function to predict the Ovarian Cancer Decision Tree classifier
+
+
 def predict_ovarian_dt(excel):
     wb = load_workbook(excel)
     ws = wb.active
@@ -139,7 +140,6 @@ def predict_ovarian_dt(excel):
     HEFour = ws["Z2"].value
     CEyA = ws["O2"].value
 
-
     session["Age"] = Age
     session["Menopause"] = Menopause
     session["CANine"] = CANine
@@ -151,9 +151,9 @@ def predict_ovarian_dt(excel):
     session['model'] = "DT"
 
     prediction = model.predict([[Age, Menopause, CANine,
-                                    CASeven, AeFP, CAOneTwo,
-                                    HEFour, CEyA
-                                    ]])
+                                 CASeven, AeFP, CAOneTwo,
+                                 HEFour, CEyA
+                                 ]])
 
     output = round(prediction[0])
     return(output)

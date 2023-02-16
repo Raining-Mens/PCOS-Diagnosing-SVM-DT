@@ -1,102 +1,102 @@
 .container-about {
-    display: flex;
-    position: absolute;
-    background-image: url('/static/assets/background-repeat.png');
-    background-repeat: repeat;
-    background-size: 30%;
-    background-position: center;
-    padding-bottom: 50px;
+  display: flex;
+  position: absolute;
+  background-image: url("/static/assets/background-repeat.png");
+  background-repeat: repeat;
+  background-size: 30%;
+  background-position: center;
+  padding-bottom: 50px;
 }
 
 .background-about {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    margin: 20px 50px 0px 50px;
-    background-color: white;
-    opacity: 0.9;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 20px 50px 0px 50px;
+  background-color: white;
+  opacity: 0.9;
 }
 
-.title h1, .heading {
-    font-family: "Montserrat";
-    font-weight: 700;
-    color: #fa7470;
-    text-align: center;
-    margin-top: 20px;
+.title h1,
+.heading {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #fa7470;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .title .pcos {
-    font-family: "Montserrat";
-    font-weight: 500;
-    text-align: center;
-    margin: 20px 100px 70px 100px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  text-align: center;
+  margin: 20px 100px 70px 100px;
 }
 
 .body {
-    flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
 }
 
 .body h2 {
-    font-family: "Montserrat";
-    font-weight: 700;
-    margin-left: 20px;
+  font-family: "Montserrat";
+  font-weight: 700;
+  margin-left: 20px;
 }
 
 .adasyn-row {
-    display: flex;
-    align-content: space-around;
-    margin-bottom: 50px;
+  display: flex;
+  align-content: space-around;
+  margin-bottom: 50px;
 }
 
 .adasyn-row .adasyn {
-    font-family: "Montserrat";
-    font-weight: 500;
-    margin: 20px 20px 0px 50px;
-    text-align: justify;
-    text-indent: 1in;
-    width: 45%;
+  font-family: "Montserrat";
+  font-weight: 500;
+  margin: 20px 20px 0px 50px;
+  text-align: justify;
+  text-indent: 1in;
+  width: 45%;
 }
 
 .adasyn {
-    font-family: "Montserrat";
-    font-weight: 500;
-    margin: 20px 20px 0px 50px;
-    text-align: justify;
-    text-indent: 1in;
+  font-family: "Montserrat";
+  font-weight: 500;
+  margin: 20px 20px 0px 50px;
+  text-align: justify;
+  text-indent: 1in;
 }
 
 .adasyn-row .dt-balance {
-    width: 50%;
-    padding-right: 10px;
+  width: 50%;
+  padding-right: 10px;
 }
 
 .dt-cfm {
-    width: 60%;
-    display: block;
-    margin: 20px auto 50px auto;
+  width: 60%;
+  display: block;
+  margin: 20px auto 50px auto;
 }
 
-.team-heading{
-    font-family: "Montserrat";
-    font-weight: 700;
-    height: 100px;
-    line-height: 100px;
-    text-align: center;
+.team-heading {
+  font-family: "Montserrat";
+  font-weight: 700;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
 }
 
-.member-pic{
-    height: 400px;
-    width: 380px;
-    object-fit: cover;
-    display: block;
-    padding: 0;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin: 20px auto 50px auto;
+.member-pic {
+  height: 400px;
+  width: 380px;
+  object-fit: cover;
+  display: block;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 20px auto 50px auto;
 }
 
-div.pic-cont{
-    text-align: center;
-    padding: 10px 20px;
+div.pic-cont {
+  text-align: center;
+  padding: 10px 20px;
 }
-

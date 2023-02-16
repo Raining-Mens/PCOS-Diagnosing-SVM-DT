@@ -1,42 +1,49 @@
 {% extends "main-page.html" %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     {% block title %}OvYou · Ovarian SVM{% endblock %}
+  </head>
 
-</head>
-
-<body>
+  <body>
     {% block content %}
     <!-- Tool -->
     <div class="main-cont-tool">
-        <form action="/ovarian_svm" method="POST" enctype="multipart/form-data">
-            <div class="container-main row">
-                <div class="container-io col m-2">
-                    <div class="file-loading">
-                        <div class="tool-input">
-                            <input type="file" id="input" name="input"
-                                accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                                onClick="preview(input)">
-                        </div>
-                    </div>
-                    <div id="tooloutput">
-                        <div class="tbl-prev">
-                            <table id="tbl-data"></table>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-cont col m-2">
-                    <div class="cont-cont">
-                        <p>OVARIAN CANCER<br>PREDICTION<br>TOOL</p>
-                        <button class="choose-button" type="submit" href="{{ url_for('ovarian_result')}}">Start</button>
-                    </div>
-                </div>
+      <form action="/ovarian_svm" method="POST" enctype="multipart/form-data">
+        <div class="container-main row">
+          <div class="container-io col m-2">
+            <div class="file-loading">
+              <div class="tool-input">
+                <input
+                  type="file"
+                  id="input"
+                  name="input"
+                  accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                  onClick="preview(input)"
+                />
+              </div>
             </div>
-        </form>
+            <div id="tooloutput">
+              <div class="tbl-prev">
+                <table id="tbl-data"></table>
+              </div>
+            </div>
+          </div>
+          <div class="container-cont col m-2">
+            <div class="cont-cont">
+              <p>OVARIAN CANCER<br />PREDICTION<br />TOOL</p>
+              <button
+                class="choose-button"
+                type="submit"
+                href="{{ url_for('ovarian_result')}}"
+              >
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
     {% endblock %}
-</body>
-
+  </body>
 </html>

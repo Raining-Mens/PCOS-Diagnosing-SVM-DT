@@ -51,7 +51,6 @@
   text-decoration: none;
 }
 
-
 .tool-output {
   background-color: #ececec;
   position: absolute;
@@ -97,7 +96,7 @@
   left: 600px;
 }
 
-.diagnosis>h1 {
+.diagnosis > h1 {
   font-family: "Montserrat";
   position: absolute;
   color: red;
@@ -105,7 +104,7 @@
   left: 30px;
 }
 
-.diagnosis>h3 {
+.diagnosis > h3 {
   font-family: "Montserrat";
   position: absolute;
   top: 57%;
@@ -130,7 +129,6 @@
   font-family: "Montserrat";
   font-weight: bold;
 }
-
 
 .result-table {
   position: absolute;

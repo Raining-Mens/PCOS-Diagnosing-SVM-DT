@@ -1,4 +1,6 @@
 # Tool for thesis entitled "An Ensemble ADASYN-ENN Resampling Approach in Diagnosing PCOS"
+
+
 # Developers:
 #     Colasino, Jayson Kim
 #     Fatallo, Lance Raphael
@@ -6,6 +8,12 @@
 #     Pascua, Karl Melo
 
 # Main app of our Tool
+
+# The OvYou Web App main application runner which contains all routes and templates that will be run by this file.
+# This app was started on _______________ then finished on ________________
+
+# Its main purpose is to diagnose a patient whether it has Polycystic Ovary Syndrome or not using the patient's data
+
 from flask import Flask, request, jsonify, redirect, url_for, render_template, session
 import pickle
 from openpyxl.workbook import Workbook
@@ -28,6 +36,8 @@ my_excel = os.path.join(THIS_FOLDER, "static/assets/uploads")
 my_assets = os.path.join(THIS_FOLDER, "static/assets")
 
 # Functionality to host the app using github workflow
+
+
 @app.route('/git_update', methods=['POST'])
 def git_update():
     repo = git.Repo('./PCOS-Diagnosing-SVM-DT')
@@ -39,22 +49,30 @@ def git_update():
 
 # Main route of the app
 # The user will select which disease to classify
+
+
 @app.route("/")
 def home():
     return render_template("home-page.html")
 
 # Index page for the Ovarian Cancer upon selecting the disease
+
+
 @app.route("/ovarian_index")
 def ovarian_index():
     return render_template("ovarian-select-page.html")
 
 # Index page for the PCOS upon selecting the disease
+
+
 @app.route("/pcos_index")
 def pcos_index():
     return render_template("pcos-select-page.html")
 
 # Function to accept excel files by their extension
 # filename contains the filename of the uploaded excel file
+
+
 def allowed_excel(filename):
     if not "." in filename:
         return False
@@ -67,6 +85,8 @@ def allowed_excel(filename):
         return False
 
 # Classifier page of the PCOS and when the user select the SVM classifier
+
+
 @app.route("/pcos_svm", methods=["GET", "POST"])
 def pcos_svm():
     # Method to delete any existing session data before classifying a new set of data
@@ -99,6 +119,8 @@ def pcos_svm():
     return render_template("pcos-svm-page.html")
 
 # Classifier page of the PCOS and when the user select the Decision Tree classifier
+
+
 @app.route("/pcos_dt", methods=["GET", "POST"])
 def pcos_dt():
     session.pop("result", None)
@@ -130,6 +152,8 @@ def pcos_dt():
     return render_template("pcos-dt-page.html")
 
 # Classifier page of the Ovarian Cancer and when the user select the SVM classifier
+
+
 @app.route("/ovarian_svm", methods=["GET", "POST"])
 def ovarian_svm():
     session.pop("result", None)
@@ -162,6 +186,8 @@ def ovarian_svm():
     return render_template("ovarian-svm-page.html")
 
 # Classifier page of the Ovarian Cancer and when the user select the Decision Tree classifier
+
+
 @app.route("/ovarian_dt", methods=["GET", "POST"])
 def ovarian_dt():
     session.pop("result", None)
@@ -193,6 +219,8 @@ def ovarian_dt():
     return render_template("ovarian-dt-page.html")
 
 # The results page of PCOS classifier
+
+
 @app.route("/pcos_results", methods=["GET", "POST"])
 def pcos_results():
     save_excel = session['save_excel']
@@ -225,6 +253,8 @@ def pcos_results():
         return redirect(url_for("pcos_svm"))
 
 # The results page of Ovarian Cancer classifier
+
+
 @app.route("/ovarian_result", methods=["GET", "POST"])
 def ovarian_result():
     save_excel = session['save_excel']
@@ -257,11 +287,15 @@ def ovarian_result():
         return redirect(url_for("pcos_svm"))
 
 # Route for the About Page
+
+
 @app.route("/about_page")
 def about_page():
     return render_template("about-page.html")
 
 # Route for the pop method that will delete any existing sessions
+
+
 @app.route("/pop")
 def pop():
     session.pop("result", None)
