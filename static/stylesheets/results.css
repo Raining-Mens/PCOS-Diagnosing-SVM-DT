@@ -1,3 +1,4 @@
+/* RESULTS BOX DIMENSIONS */
 .login {
   overflow: hidden;
   outline-color: #fa7470;
@@ -16,6 +17,7 @@
   box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
 }
 
+/* BUTTON TO GO BACK TO HOME PAGE */
 .right-side-button {
   position: absolute;
   right: 30px;
@@ -45,12 +47,14 @@
   text-decoration: none;
 }
 
+/* BACK BUTTON HOVER EFFECT */
 .back-button:hover {
   background-color: #d93d4a;
   color: white;
   text-decoration: none;
 }
 
+/* USED FOR TOOL OUTPUT */
 .tool-output {
   background-color: #ececec;
   position: absolute;
@@ -63,11 +67,7 @@
   text-align: center;
 }
 
-/* .table-preview {
-  overflow-x: scroll;
-
-} */
-
+/* USED FOR TABLE PREVIEW */
 .table-preview {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -96,6 +96,7 @@
   left: 600px;
 }
 
+/* USED FOR DIAGNOSIS OUTPUT */
 .diagnosis > h1 {
   font-family: "Montserrat";
   position: absolute;
@@ -116,6 +117,7 @@
   color: #fa7470;
 }
 
+/* USED FOR MODEL OUTPUT */
 .model {
   font-family: "Montserrat";
   font-weight: bold;
@@ -130,6 +132,7 @@
   font-weight: bold;
 }
 
+/* USED FOR TABLE OUTPUT */
 .result-table {
   position: absolute;
   line-height: 0.4;

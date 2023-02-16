@@ -20,7 +20,7 @@ html {
   background-color: #fff;
 }
 
-/* <-- NavBar */
+/*################# NAVBAR #################*/
 header {
   display: flex;
   justify-content: space-between;
@@ -66,7 +66,9 @@ header {
 .up-nav ul li a:hover {
   color: #fa7470;
 }
+/*################# NAVBAR #################*/
 
+/*################# BACKGROUND IMAGE #################*/
 .background .img-fluid {
   position: absolute;
   max-width: 100%;
@@ -74,11 +76,9 @@ header {
   right: 0%;
   bottom: 0%;
 }
+/*################# BACKGROUND IMAGE #################*/
 
-/* NavBar -->*/
-
-/* <-- Index Page */
-
+/*####### CONTAINERS, COLUMNS, HEADERS, PARAGRAPHS #######*/
 .header-title p {
   text-align: start;
   margin-left: 40px;
@@ -87,6 +87,7 @@ header {
   width: 50%;
   justify-content: space-around;
 }
+
 
 .container-fluid .col {
   position: absolute;
@@ -119,7 +120,9 @@ header {
   font-size: medium;
   font-weight: 500;
 }
+/*####### CONTAINERS, COLUMNS, HEADERS, PARAGRAPHS #######*/
 
+/*###### BUTTONS FOR CHOOSING DISEASES OR CLASSIFIERS #####*/
 .start-button {
   display: inline-block;
   position: absolute;
@@ -136,18 +139,14 @@ header {
   border-width: 0;
   padding: 10px 50px;
   font-size: medium;
-  /* margin-top: 10px;
-    margin-left: 8px; */
 }
 
 .choose-button:hover {
   background-color: #d93d4a;
 }
+/*###### BUTTONS FOR CHOOSING DISEASES OR CLASSIFIERS #####*/
 
-/* Index Page --> */
-
-/* <-- Tool Pages */
-
+/*################# FOR TOOL AND MAIN PAGE #################*/
 .main-cont-tool {
   height: 100%;
   max-height: max-content;
@@ -175,7 +174,6 @@ header {
 
 .container-cont {
   z-index: 4;
-  /* position: relative; */
   width: 50%;
   height: max-content;
   text-align: center;
@@ -200,7 +198,9 @@ header {
 button {
   font-family: "Montserrat";
 }
+/*################# FOR TOOL AND MAIN PAGE #################*/
 
+/*################# FOR FILE INPUT #################*/
 .file-loading {
   width: 100%;
   height: 100%;
@@ -226,7 +226,9 @@ button {
   font-weight: 500;
   margin-left: 20px;
 }
+/*################# FOR FILE INPUT #################*/
 
+/*################# FOR TOOL OUTPUT #################*/
 #tooloutput {
   background-color: #fff;
   margin-top: 20px;
@@ -262,83 +264,9 @@ button {
   align-items: center;
   height: 100%;
 }
+/*################# FOR TOOL OUTPUT #################*/
 
-/* .control-svm {
-    width: 110px;
-    height: 90px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    background-color:#fa7470;
-    align-self: center;
-    border-radius: 10%;
-}
-
-.control-svm:hover {
-    width: 110px;
-    height: 90px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    background-color:#ffb2b0;
-    align-self: center;
-    border-radius: 10%;
-}
-
-.control-dt {
-    width: 110px;
-    height: 90px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: #fbd1a9;
-    align-self: center;
-    border-radius: 10%;
-}
-
-.control-dt:hover {
-    width: 110px;
-    height: 90px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: #feecdb;
-    align-self: center;
-    border-radius: 10%;
-} */
-/* 
-.start {
-    margin-top: 20px;
-    font-family: "Montserrat";
-    font-weight: bold;
-    font-size: medium;
-    color: #fff;
-    background-color: #fa7470;
-    border-radius: 30px;
-    border-width: 0;
-    padding: 10px 50px;
-}
-
-.start:hover {
-    margin-top: 20px;
-    width: 120px;
-    align-self: center;
-    background-color:#d93d4a;
-    font-size: 40px;
-    font-weight: bold;
-    border: 0;
-    border-radius: 5%;
-    color: white;
-} */
-
-/* Tool Pages --> */
-
-/* .row-2 {
-    display: flex;
-    justify-content: flex-end;
-} */
-
-/* <-- How TO Guide */
+/*################# FOR HOW TO GUIDE #################*/
 .howBtn {
   margin-top: 10px;
   width: 40px;
@@ -470,4 +398,5 @@ button {
   cursor: pointer;
 }
 
-/* How to Guide -->*/
+/*################# FOR HOW TO GUIDE #################*/
+
