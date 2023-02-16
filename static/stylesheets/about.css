@@ -1,3 +1,4 @@
+/* BACKGROUND IMAGE */
 .container-about {
   display: flex;
   position: absolute;
@@ -8,6 +9,7 @@
   padding-bottom: 50px;
 }
 
+/* BACKGROUND DIMENSIONS */
 .background-about {
   display: flex;
   flex-wrap: wrap;
@@ -17,6 +19,7 @@
   opacity: 0.9;
 }
 
+/* HEADER FONTS */
 .title h1,
 .heading {
   font-family: "Montserrat";
@@ -26,13 +29,15 @@
   margin-top: 20px;
 }
 
-.title .pcos {
+/* TOOL DESCRIPTION */
+.title .tool {
   font-family: "Montserrat";
   font-weight: 500;
   text-align: center;
   margin: 20px 100px 70px 100px;
 }
 
+/* BODY FONTS */
 .body {
   flex-wrap: wrap-reverse;
 }
@@ -43,6 +48,7 @@
   margin-left: 20px;
 }
 
+/* USED IN ADASYN-ENN DESCRIPTION AND EXPERIMENT PAPERS */
 .adasyn-row {
   display: flex;
   align-content: space-around;
@@ -77,6 +83,7 @@
   margin: 20px auto 50px auto;
 }
 
+/* USED FOR TEAM SECTION */
 .team-heading {
   font-family: "Montserrat";
   font-weight: 700;
