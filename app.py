@@ -17,7 +17,8 @@
 # All data are stored and retrieved through Sessions. See more on https://bit.ly/3KdUGH5
 
 
-# The codebase use the Anaconda3 2022.10 (Python 3.9.13) https://bit.ly/411MAqP as the Python Interpreter and library of modules
+# The codebase use the Anaconda3 2022.10 (Python 3.9.13) https://bit.ly/411MAqP 
+# as the Python Interpreter and library of modules
 # After installing Anaconda3, go to Anaconda3 console and install git
 #       > conda install GitPython
 # After installing GitPython, run the application
@@ -71,13 +72,14 @@ def pcos_index():
     return render_template("pcos-select-page.html")
 
 # Function to accept excel files by their extension
-
-def allowed_excel(filename): # filename contains the filename of the uploaded excel file
+    # filename contains the filename of the uploaded excel file
+def allowed_excel(filename): 
     if not "." in filename:
         return False
 
     ext = filename.rsplit(".", 1)[1]
-    if ext.upper() in app.config["ALLOWED_EXCEL_EXTENSIONS"]: # If the excel file consist of the allowed extensions like .xlxs, .csv, .xlx
+        # If the excel file consist of the allowed extensions like .xlxs, .csv, .xlx
+    if ext.upper() in app.config["ALLOWED_EXCEL_EXTENSIONS"]: 
         return True
     else:
         return False
@@ -86,33 +88,44 @@ def allowed_excel(filename): # filename contains the filename of the uploaded ex
 @app.route("/pcos_svm", methods=["GET", "POST"])
 def pcos_svm():
 
-    # Method to delete any existing session data before classifying a new set of data
+        # Method to delete any existing session data before classifying a new set of data
     session.pop("result", None)
     session.pop("model", None)
-
-    if request.method == "POST": # POST method to get the uploaded excel file
+        # POST method to get the uploaded excel file
+    if request.method == "POST": 
         if request.files:
-            excel = request.files["input"] # "input" is the excel which have been uploaded to the tool
+                # "input" is the excel which have been uploaded to the tool
+            excel = request.files["input"] 
 
-            if excel.filename == "": # To check if the excel file has a filename
+                # To check if the excel file has a filename
+            if excel.filename == "": 
                 print("Excel file must have a filename")
                 return redirect(request.url)
 
-            if not allowed_excel(excel.filename): # To check if the excel file have the allowed extension
+                # To check if the excel file have the allowed extension
+            if not allowed_excel(excel.filename): 
                 print("That excel extension is not allowed")
                 return redirect(request.url)
 
             else:
-                filename = secure_filename(excel.filename) # To check if the excel file has a secured filename
-                excel.save(os.path.join(my_excel, filename)) # Saving the uploaded excel file to the directory
-                session['save_excel'] = filename # Saving the excel filename to a session
+                    # To check if the excel file has a secured filename
+                filename = secure_filename(excel.filename) 
+                    # Saving the uploaded excel file to the directory
+                excel.save(os.path.join(my_excel, filename)) 
+                    # Saving the excel filename to a session
+                session['save_excel'] = filename 
 
-            output = predict_pcos_svm(excel) # Call function for predicting the uploaded excel file then saving the result to 'output'
-            session['result'] = int(output) # Saving the results of 'output' to a session
-
-            return redirect(url_for("pcos_results")) # Redirecting the page to the 'pcos_results' route
+                # Call function for predicting the uploaded excel file then 
+                # saving the result to 'output'
+            output = predict_pcos_svm(excel) 
+                # Saving the results of 'output' to a session
+            session['result'] = int(output) 
+                # Redirecting the page to the 'pcos_results' route
+            return redirect(url_for("pcos_results")) 
     else:
-        if "result" in session: # Checking if a pre-existing session has been made, if yes, redirecting the page to the 'pop' route
+            # Checking if a pre-existing session has been made, if yes, 
+            # redirecting the page to the 'pop' route
+        if "result" in session: 
             return redirect(url_for("pop"))
     return render_template("pcos-svm-page.html") # Rendering the template of the page
 
