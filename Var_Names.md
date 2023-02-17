@@ -1,6 +1,6 @@
 # **Variable Names**
 
-## api -> app
+## app
 - ovarian_index
 - pcos_index
 - pcos_svm
@@ -38,7 +38,7 @@
 - predict_ovarian_svm
 - predict_ovarian_dt
 
-## predict_excel -> predict_funct
+## predict_funct
 - predict_excel_svm
 - predict_excel_dt
 - ovarian_svm
