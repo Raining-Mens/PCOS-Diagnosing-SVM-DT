@@ -19,7 +19,7 @@ def predict_pcos_svm(excel):
     wb = load_workbook(excel) # Loading the excel file
     ws = wb.active
 
-    # Reading the excel file's cell value and assigning a variable
+        # Reading the excel file's cell value and assigning a variable
     PatID = ws["A2"].value
     Age = ws["B2"].value
     CycleLength = ws["U2"].value
@@ -32,7 +32,7 @@ def predict_pcos_svm(excel):
     AvgFsizeLmm = ws["AN2"].value
     AvgFsizeRmm = ws["AO2"].value
 
-    # Storing the values to a session to be displayed on the results page
+        # Storing the values to a session to be displayed on the results page
     session["PatID"] = PatID
     session["Age"] = Age
     session["Hairgrowth"] = Hairgrowth
@@ -40,18 +40,18 @@ def predict_pcos_svm(excel):
     session["WeightGain"] = WeightGain
     session["FastFood"] = FastFood
 
-    # Loading the machine learning model to be used
+        # Loading the machine learning model to be used
     model = pickle.load(open(os.path.join(my_assets, "svm-model.pkl"), 'rb'))
     session['model'] = "SVM" # Storing the model's name to a session
 
-    # Prediction function using the variables from the cell values
+        # Prediction function using the variables from the cell values
     prediction = model.predict([[Hairgrowth, SkinDarkening,
                                  WeightGain, CycleLength,
                                  AvgFsizeLmm, AvgFsizeRmm,
                                  FastFood, Pimple, CycleRI
                                  ]])
-
-    output = round(prediction[0]) # Rounding the prediction from float to a whole number then storing it to 'output'
+        # Rounding the prediction from float to a whole number then storing it to 'output'
+    output = round(prediction[0]) 
     return(output)
 
 # Function to predict the PCOS Decision Tree classifier
