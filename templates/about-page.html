@@ -1,182 +1,191 @@
 {% extends "main-page.html" %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% block title %}OvYou · About{% endblock %}
-  </head>
-  <body>
-    {% block content %}
-    <!-- ABOUT PAGE -->
-    <div class="container-about">
-      <div class="background-about">
-        <div class="title">
-          <!-- TOOL DESCRIPTION -->
-          <h1>Ovarian Disease Prediction Tool</h1>
-          <p class="tool">
-            This tool will predict if the patient is infected with Polycystic
-            Ovary Syndrome or Ovarian Cancer by examining physical and clinical
-            assessment of the patient using the machine learning models SVM and
-            Decision Tree
-          </p>
-        </div>
-        <div class="body">
-          <!-- ADASYN-ENN DESCRIPTION -->
-          <h2>ADASYN-ENN</h2>
-          <div class="adasyn-row">
-            <p class="adasyn">
-              ADASYN-ENN is an ensemble balancing method consists of Adaptive
-              Synthetic and Edited Nearest Neighbor. Adaptive Synthetic is an
-              over-sampling technique which generates synthetic instances on the
-              region with less positive instances than one with more positive
-              instances to increase the recognition of positive. On the other
-              hand, ENN or Edited Nearest Neighbor is an under-sampling
-              technique that deletes sample sets like noises which can be
-              present after an over-sampling method was processed to the data.
-              ENN is used to remove noisy data that cancel out the flaws of
-              ADASYN, which may result on producing a much robust balanced data
-              for better fitting into classifiers.
-            </p>
-            <img
-              src="{{ url_for('static', filename='assets/charts/dt-balance.png') }}"
-              class="dt-balance"
-              alt="dt balance img"
-            />
-          </div>
-
-          <!-- EXPERIMENT PAPERS -->
-          <hr style="height: 5px; color: #ff0800" />
-          <h1 class="heading">Polycystic Ovary Syndrome</h1>
-
-          <hr style="height: 5px; color: #ff0800" />
-          <h1 class="heading">Polycystic Ovary Syndrome</h1>
-          <h2>PRECISION-RECALL CURVE (DECISION TREE)</h2>
-          <p class="adasyn">
-            The graph below shows the precision-recall curve or PRC of decision
-            tree algorithm with and without Adasyn-Enn. The three lines
-            indicates the PRC of each classes and the average of the two. The
-            solid black line corresponds to the class 0 which is the classes
-            that don't have PCOS or Ovarian Cancer, the solid green line
-            corresponds to the class 1, those that have PCOS or Ovarian Cancer
-            and the dotted blue line is the average. While the PRC of class 0 is
-            higher when there is no Adasyn-Enn, the PRC of class 1 is
-            significantly higher if the Adasyn-Enn resulting to higher average
-            PRC.
-          </p>
-          <img
-            src="{{ url_for('static', filename='assets/charts/dt-prc.png') }}"
-            class="dt-cfm"
-            alt="dt cfm img"
-          />
-          <h2>PRECISION-RECALL CURVE (SUPPORT VECTOR MACHINE)</h2>
-          <p class="adasyn">
-            The graph below shows the precision-recall curve or PRC of SVM
-            algorithm with and without Adasyn-Enn. The three lines indicates the
-            PRC of each classes and the average of the two. The solid black line
-            corresponds to the class 0 which is the classes that don't have PCOS
-            or Ovarian Cancer, the solid green line corresponds to the class 1,
-            those that have PCOS or Ovarian Cancer and the dotted blue line is
-            the average. While the PRC of class 0 is higher when there is no
-            Adasyn-Enn, the PRC of class 1 is significantly higher if the
-            Adasyn-Enn resulting to higher average PRC.
-          </p>
-          <img
-            src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}"
-            class="dt-cfm"
-            alt="dt cfm img"
-          />
-
-          <hr style="height: 5px; color: #ff0800" />
-          <h1 class="heading">Ovarian Cancer</h1>
-          <h2>PRECISION-RECALL CURVE (DECISION TREE)</h2>
-          <p class="adasyn">
-            The graph below shows the precision-recall curve or PRC of decision
-            tree algorithm with and without Adasyn-Enn. The three lines
-            indicates the PRC of each classes and the average of the two. The
-            solid black line corresponds to the class 0 which is the classes
-            that don't have PCOS or Ovarian Cancer, the solid green line
-            corresponds to the class 1, those that have PCOS or Ovarian Cancer
-            and the dotted blue line is the average. While the PRC of class 0 is
-            higher when there is no Adasyn-Enn, the PRC of class 1 is
-            significantly higher if the Adasyn-Enn resulting to higher average
-            PRC.
-          </p>
-          <img
-            src="{{ url_for('static', filename='assets/charts/dt-prc.png') }}"
-            class="dt-cfm"
-            alt="dt cfm img"
-          />
-          <h2>PRECISION-RECALL CURVE (SUPPORT VECTOR MACHINE)</h2>
-          <p class="adasyn">
-            The graph below shows the precision-recall curve or PRC of SVM
-            algorithm with and without Adasyn-Enn. The three lines indicates the
-            PRC of each classes and the average of the two. The solid black line
-            corresponds to the class 0 which is the classes that don't have PCOS
-            or Ovarian Cancer, the solid green line corresponds to the class 1,
-            those that have PCOS or Ovarian Cancer and the dotted blue line is
-            the average. While the PRC of class 0 is higher when there is no
-            Adasyn-Enn, the PRC of class 1 is significantly higher if the
-            Adasyn-Enn resulting to higher average PRC.
-          </p>
-          <img
-            src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}"
-            class="dt-cfm"
-            alt="dt cfm img"
-          />
-          <hr style="height: 5px; color: #ff0800" />
-          
-          <!-- TEAM SECTION -->
-          <h1 class="team-heading">The Team!</h1>
-
-          <div class="container">
-            <div class="card-deck">
-              <div class="row">
-                <div class="card col-md-6">
-                  <img
-                    src="{{ url_for('static', filename='assets/Kristian.jpg') }}"
-                    class="member-pic"
-                    alt="Kristian Lead"
-                  />
-                  <div class="pic-cont">
-                    <p>Main Team Leader</p>
-                  </div>
+    <head>
+        {% block title %}OvYou · About{% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        <!-- ABOUT PAGE -->
+        <div class="container-about">
+            <div class="background-about">
+                <div class="title">
+                    <!-- TOOL DESCRIPTION -->
+                    <h1>Ovarian Disease Prediction Tool</h1>
+                    <p class="tool">
+                        This tool will predict if the patient is infected with
+                        Polycystic Ovary Syndrome or Ovarian Cancer by examining
+                        physical and clinical assessment of the patient using
+                        the machine learning models SVM and Decision Tree
+                    </p>
                 </div>
-                <div class="card col-md-6">
-                  <img
-                    src="{{ url_for('static', filename='assets/Lance.jpg') }}"
-                    class="member-pic"
-                    alt="Lance Second Lead"
-                  />
-                  <div class="pic-cont">
-                    <p>Second Main Leader</p>
-                  </div>
+                <div class="body">
+                    <!-- ADASYN-ENN DESCRIPTION -->
+                    <h2>ADASYN-ENN</h2>
+                    <div class="adasyn-row">
+                        <p class="adasyn">
+                            ADASYN-ENN is an ensemble balancing method consists
+                            of Adaptive Synthetic and Edited Nearest Neighbor.
+                            Adaptive Synthetic is an over-sampling technique
+                            which generates synthetic instances on the region
+                            with less positive instances than one with more
+                            positive instances to increase the recognition of
+                            positive. On the other hand, ENN or Edited Nearest
+                            Neighbor is an under-sampling technique that deletes
+                            sample sets like noises which can be present after
+                            an over-sampling method was processed to the data.
+                            ENN is used to remove noisy data that cancel out the
+                            flaws of ADASYN, which may result on producing a
+                            much robust balanced data for better fitting into
+                            classifiers.
+                        </p>
+                        <img
+                            src="{{ url_for('static', filename='assets/charts/dt-balance.png') }}"
+                            class="dt-balance"
+                            alt="dt balance img"
+                        />
+                    </div>
+
+                    <!-- EXPERIMENT PAPERS -->
+                    <hr style="height: 5px; color: #ff0800" />
+                    <h1 class="heading">Polycystic Ovary Syndrome</h1>
+
+                    <hr style="height: 5px; color: #ff0800" />
+                    <h1 class="heading">Polycystic Ovary Syndrome</h1>
+                    <h2>PRECISION-RECALL CURVE (DECISION TREE)</h2>
+                    <p class="adasyn">
+                        The graph below shows the precision-recall curve or PRC
+                        of decision tree algorithm with and without Adasyn-Enn.
+                        The three lines indicates the PRC of each classes and
+                        the average of the two. The solid black line corresponds
+                        to the class 0 which is the classes that don't have PCOS
+                        or Ovarian Cancer, the solid green line corresponds to
+                        the class 1, those that have PCOS or Ovarian Cancer and
+                        the dotted blue line is the average. While the PRC of
+                        class 0 is higher when there is no Adasyn-Enn, the PRC
+                        of class 1 is significantly higher if the Adasyn-Enn
+                        resulting to higher average PRC.
+                    </p>
+                    <img
+                        src="{{ url_for('static', filename='assets/charts/dt-prc.png') }}"
+                        class="dt-cfm"
+                        alt="dt cfm img"
+                    />
+                    <h2>PRECISION-RECALL CURVE (SUPPORT VECTOR MACHINE)</h2>
+                    <p class="adasyn">
+                        The graph below shows the precision-recall curve or PRC
+                        of SVM algorithm with and without Adasyn-Enn. The three
+                        lines indicates the PRC of each classes and the average
+                        of the two. The solid black line corresponds to the
+                        class 0 which is the classes that don't have PCOS or
+                        Ovarian Cancer, the solid green line corresponds to the
+                        class 1, those that have PCOS or Ovarian Cancer and the
+                        dotted blue line is the average. While the PRC of class
+                        0 is higher when there is no Adasyn-Enn, the PRC of
+                        class 1 is significantly higher if the Adasyn-Enn
+                        resulting to higher average PRC.
+                    </p>
+                    <img
+                        src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}"
+                        class="dt-cfm"
+                        alt="dt cfm img"
+                    />
+
+                    <hr style="height: 5px; color: #ff0800" />
+                    <h1 class="heading">Ovarian Cancer</h1>
+                    <h2>PRECISION-RECALL CURVE (DECISION TREE)</h2>
+                    <p class="adasyn">
+                        The graph below shows the precision-recall curve or PRC
+                        of decision tree algorithm with and without Adasyn-Enn.
+                        The three lines indicates the PRC of each classes and
+                        the average of the two. The solid black line corresponds
+                        to the class 0 which is the classes that don't have PCOS
+                        or Ovarian Cancer, the solid green line corresponds to
+                        the class 1, those that have PCOS or Ovarian Cancer and
+                        the dotted blue line is the average. While the PRC of
+                        class 0 is higher when there is no Adasyn-Enn, the PRC
+                        of class 1 is significantly higher if the Adasyn-Enn
+                        resulting to higher average PRC.
+                    </p>
+                    <img
+                        src="{{ url_for('static', filename='assets/charts/dt-prc.png') }}"
+                        class="dt-cfm"
+                        alt="dt cfm img"
+                    />
+                    <h2>PRECISION-RECALL CURVE (SUPPORT VECTOR MACHINE)</h2>
+                    <p class="adasyn">
+                        The graph below shows the precision-recall curve or PRC
+                        of SVM algorithm with and without Adasyn-Enn. The three
+                        lines indicates the PRC of each classes and the average
+                        of the two. The solid black line corresponds to the
+                        class 0 which is the classes that don't have PCOS or
+                        Ovarian Cancer, the solid green line corresponds to the
+                        class 1, those that have PCOS or Ovarian Cancer and the
+                        dotted blue line is the average. While the PRC of class
+                        0 is higher when there is no Adasyn-Enn, the PRC of
+                        class 1 is significantly higher if the Adasyn-Enn
+                        resulting to higher average PRC.
+                    </p>
+                    <img
+                        src="{{ url_for('static', filename='assets/charts/svm-prc.png') }}"
+                        class="dt-cfm"
+                        alt="dt cfm img"
+                    />
+                    <hr style="height: 5px; color: #ff0800" />
+
+                    <!-- TEAM SECTION -->
+                    <h1 class="team-heading">The Team!</h1>
+
+                    <div class="container">
+                        <div class="card-deck">
+                            <div class="row">
+                                <div class="card col-md-6">
+                                    <img
+                                        src="{{ url_for('static', filename='assets/Kristian.jpg') }}"
+                                        class="member-pic"
+                                        alt="Kristian Lead"
+                                    />
+                                    <div class="pic-cont">
+                                        <p>Main Team Leader</p>
+                                    </div>
+                                </div>
+                                <div class="card col-md-6">
+                                    <img
+                                        src="{{ url_for('static', filename='assets/Lance.jpg') }}"
+                                        class="member-pic"
+                                        alt="Lance Second Lead"
+                                    />
+                                    <div class="pic-cont">
+                                        <p>Second Main Leader</p>
+                                    </div>
+                                </div>
+                                <div class="card col-md-6">
+                                    <img
+                                        src="{{ url_for('static', filename='assets/Jayson.jpg') }}"
+                                        class="member-pic"
+                                        alt="Jayson Researcher"
+                                    />
+                                    <div class="pic-cont">
+                                        <p>Front end Developer/Researcher</p>
+                                    </div>
+                                </div>
+                                <div class="card col-md-6">
+                                    <img
+                                        src="{{ url_for('static', filename='assets/Karla.jpg') }}"
+                                        class="member-pic"
+                                        alt="Karla Front end"
+                                    />
+                                    <div class="pic-cont">
+                                        <p>Front End Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card col-md-6">
-                  <img
-                    src="{{ url_for('static', filename='assets/Jayson.jpg') }}"
-                    class="member-pic"
-                    alt="Jayson Researcher"
-                  />
-                  <div class="pic-cont">
-                    <p>Front end Developer/Researcher</p>
-                  </div>
-                </div>
-                <div class="card col-md-6">
-                  <img
-                    src="{{ url_for('static', filename='assets/Karla.jpg') }}"
-                    class="member-pic"
-                    alt="Karla Front end"
-                  />
-                  <div class="pic-cont">
-                    <p>Front End Developer</p>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    {% endblock %}
-  </body>
+        {% endblock %}
+    </body>
 </html>

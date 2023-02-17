@@ -1,147 +1,147 @@
 /* RESULTS BOX DIMENSIONS */
 .login {
-  overflow: hidden;
-  outline-color: #fa7470;
-  outline-style: outset;
-  outline-width: thick;
-  background-color: white;
-  padding: 40px 30px 30px 30px;
-  border-radius: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 450px;
-  width: 800px;
-  transform: translate(-50%, -50%);
-  transition: transform 300ms, box-shadow 300ms;
-  box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+    overflow: hidden;
+    outline-color: #fa7470;
+    outline-style: outset;
+    outline-width: thick;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 450px;
+    width: 800px;
+    transform: translate(-50%, -50%);
+    transition: transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
 }
 
 /* BUTTON TO GO BACK TO HOME PAGE */
 .right-side-button {
-  position: absolute;
-  right: 30px;
-  bottom: 0;
-  display: block;
-  height: 200px;
-  text-align: center;
-  padding: auto;
-  width: 150px;
-  line-height: 3;
-  padding-top: 65px;
-  padding-bottom: 0px;
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    display: block;
+    height: 200px;
+    text-align: center;
+    padding: auto;
+    width: 150px;
+    line-height: 3;
+    padding-top: 65px;
+    padding-bottom: 0px;
 }
 
 .back-button {
-  bottom: 0;
-  margin-right: 0;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: #fff;
-  background-color: #fa7470;
-  border-radius: 30px;
-  border-width: 0;
-  padding: 10px 52px;
-  font-size: medium;
-  text-decoration: none;
-  text-decoration: none;
+    bottom: 0;
+    margin-right: 0;
+    font-family: "Montserrat";
+    font-weight: bold;
+    color: #fff;
+    background-color: #fa7470;
+    border-radius: 30px;
+    border-width: 0;
+    padding: 10px 52px;
+    font-size: medium;
+    text-decoration: none;
+    text-decoration: none;
 }
 
 /* BACK BUTTON HOVER EFFECT */
 .back-button:hover {
-  background-color: #d93d4a;
-  color: white;
-  text-decoration: none;
+    background-color: #d93d4a;
+    color: white;
+    text-decoration: none;
 }
 
 /* USED FOR TOOL OUTPUT */
 .tool-output {
-  background-color: #ececec;
-  position: absolute;
-  border-style: inset;
-  margin-top: -20px;
-  padding: 20px;
-  border-color: #919090;
-  height: 200px;
-  width: 740px;
-  text-align: center;
+    background-color: #ececec;
+    position: absolute;
+    border-style: inset;
+    margin-top: -20px;
+    padding: 20px;
+    border-color: #919090;
+    height: 200px;
+    width: 740px;
+    text-align: center;
 }
 
 /* USED FOR TABLE PREVIEW */
 .table-preview {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow-x: scroll;
-  width: 700px;
-  top: 5px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: scroll;
+    width: 700px;
+    top: 5px;
 }
 
 .table-preview::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .bar1 {
-  border-left: 4px solid #f45b69;
-  height: 200px;
-  position: absolute;
-  bottom: 0px;
-  left: 320px;
+    border-left: 4px solid #f45b69;
+    height: 200px;
+    position: absolute;
+    bottom: 0px;
+    left: 320px;
 }
 
 .bar2 {
-  border-left: 4px solid #f45b69;
-  height: 200px;
-  position: absolute;
-  bottom: 0px;
-  left: 600px;
+    border-left: 4px solid #f45b69;
+    height: 200px;
+    position: absolute;
+    bottom: 0px;
+    left: 600px;
 }
 
 /* USED FOR DIAGNOSIS OUTPUT */
 .diagnosis > h1 {
-  font-family: "Montserrat";
-  position: absolute;
-  color: red;
-  bottom: 80px;
-  left: 30px;
+    font-family: "Montserrat";
+    position: absolute;
+    color: red;
+    bottom: 80px;
+    left: 30px;
 }
 
 .diagnosis > h3 {
-  font-family: "Montserrat";
-  position: absolute;
-  top: 57%;
-  left: 30px;
+    font-family: "Montserrat";
+    position: absolute;
+    top: 57%;
+    left: 30px;
 }
 
 .diagnosis strong {
-  font-family: "Montserrat";
-  color: #fa7470;
+    font-family: "Montserrat";
+    color: #fa7470;
 }
 
 /* USED FOR MODEL OUTPUT */
 .model {
-  font-family: "Montserrat";
-  font-weight: bold;
-  position: absolute;
-  bottom: 3px;
-  left: 30px;
-  display: block;
+    font-family: "Montserrat";
+    font-weight: bold;
+    position: absolute;
+    bottom: 3px;
+    left: 30px;
+    display: block;
 }
 
 .model h4 {
-  font-family: "Montserrat";
-  font-weight: bold;
+    font-family: "Montserrat";
+    font-weight: bold;
 }
 
 /* USED FOR TABLE OUTPUT */
 .result-table {
-  position: absolute;
-  line-height: 0.4;
-  bottom: 10px;
-  left: 43%;
+    position: absolute;
+    line-height: 0.4;
+    bottom: 10px;
+    left: 43%;
 }
 
 .result-table p {
-  font-family: "Montserrat";
-  font-weight: 500;
-  font-size: 20px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 20px;
 }

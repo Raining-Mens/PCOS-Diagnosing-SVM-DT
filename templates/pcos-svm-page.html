@@ -1,51 +1,55 @@
 {% extends "main-page.html" %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% block title %}OvYou · PCOS SVM{% endblock %}
-  </head>
+    <head>
+        {% block title %}OvYou · PCOS SVM{% endblock %}
+    </head>
 
-  <body>
-    {% block content %}
-    <!-- PCOS SVM TOOL -->
-    <div class="main-cont-tool">
-      <form action="/pcos_svm" method="POST" enctype="multipart/form-data">
-        <div class="container-main row">
-          <div class="container-io col m-2">
-            <!-- EXCEL FILE INPUT -->
-            <div class="file-loading">
-              <div class="tool-input">
-                <input
-                  type="file"
-                  id="input"
-                  name="input"
-                  accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                  onClick="preview(input)"
-                />
-              </div>
-            </div>
-            <!-- TABLE PREVIEW -->
-            <div id="tooloutput">
-              <div class="tbl-prev">
-                <table id="tbl-data"></table>
-              </div>
-            </div>
-          </div>
-          <div class="container-cont col m-2">
-            <div class="cont-cont">
-              <p>PCOS<br />PREDICTION<br />TOOL</p>
-              <button
-                class="choose-button"
-                type="submit"
-                href="{{ url_for('pcos_results')}}"
-              >
-                Start
-              </button>
-            </div>
-          </div>
+    <body>
+        {% block content %}
+        <!-- PCOS SVM TOOL -->
+        <div class="main-cont-tool">
+            <form
+                action="/pcos_svm"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+                <div class="container-main row">
+                    <div class="container-io col m-2">
+                        <!-- EXCEL FILE INPUT -->
+                        <div class="file-loading">
+                            <div class="tool-input">
+                                <input
+                                    type="file"
+                                    id="input"
+                                    name="input"
+                                    accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                                    onClick="preview(input)"
+                                />
+                            </div>
+                        </div>
+                        <!-- TABLE PREVIEW -->
+                        <div id="tooloutput">
+                            <div class="tbl-prev">
+                                <table id="tbl-data"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-cont col m-2">
+                        <div class="cont-cont">
+                            <p>PCOS<br />PREDICTION<br />TOOL</p>
+                            <button
+                                class="choose-button"
+                                type="submit"
+                                href="{{ url_for('pcos_results')}}"
+                            >
+                                Start
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-    {% endblock %}
-  </body>
+        {% endblock %}
+    </body>
 </html>

@@ -1,169 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% block title %}{% endblock %}</title>
-    <link
-      rel="shortcut icon"
-      href="{{ url_for('static', filename='assets//ovyou-icon-pink.ico') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='stylesheets//style.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='stylesheets//results.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='stylesheets//about.css') }}"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
-
-    <script
-      type="text/javascript"
-      src="{{ url_for('static', filename='js/preview.js')}}"
-    ></script>
-  </head>
-
-  <body>
-    <!-- NAVBAR -->
-    <div class="background">
-      <div id="back">
-        <img
-          src="{{ url_for('static', filename='assets/background-home.png') }}"
-          class="img-fluid"
-          alt="ovary img"
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{% block title %}{% endblock %}</title>
+        <link
+            rel="shortcut icon"
+            href="{{ url_for('static', filename='assets//ovyou-icon-pink.ico') }}"
         />
-      </div>
-      <header>
-        <a href="{{ url_for('home') }}"
-          ><img
-            src="{{ url_for('static', filename='assets/ovyou-title.png') }}"
-            class="logo"
-            alt="logo img"
-        /></a>
-        <nav class="up-nav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a id="myBtn" href="#">How To Guide</a></li>
-            <li><a href="{{ url_for('about_page')}}">About</a></li>
-          </ul>
-        </nav>
-      </header>
-    </div>
-    <!-- HOW TO GUIDE POP-UP -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1>HOW TO GUIDE</h1>
-        <p>
-          1. Download or follow the Input Data Excel Template.
-          <a href="/static/assets/uploads/PCOS_Template.xlsx" download
-            >Download for PCOS</a
-          >
-          or
-          <a href="/static/assets/uploads/OC_template.xlsx" download
-            >Download for Ovarian Cancer</a
-          >
-          <br />2. Choose which disease to predict: PCOS or Ovarian Cancer.
-          <br />3. Select which model to use. It's either Support Vector Machine
-          (SVM) or Decision Tree (DT). <br />4. Upload the excel file to upload
-          box. <br />5. Click start to begin evaluation.
-        </p>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='stylesheets//style.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='stylesheets//results.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='stylesheets//about.css') }}"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
 
-        <hr style="height: 5px; color: #ff0800" />
+        <script
+            type="text/javascript"
+            src="{{ url_for('static', filename='js/preview.js')}}"
+        ></script>
+    </head>
 
-        <p>It will then show the contents of the file.</p>
-        <p2>Placeholder</p2>
-
-        <hr style="height: 5px; color: #ff0800" />
-
-        <div class="modal-row">
-          <div class="modal-col1">
-            <p>
-              After the evaluation, it will show the results on bottom whether
-              it is <p1>POSITIVE</p1> or <p1>NEGATIVE</p1>.<br />Along with the
-              details of which model has been used and some details about the
-              patient's data.
-            </p>
-          </div>
-          <div class="modal-col2">
-            <img
-              src="{{ url_for('static', filename='assets/sample-diagnosis.png') }}"
-              class="img-fluid"
-              alt="placeholder img"
-            />
-          </div>
+    <body>
+        <!-- NAVBAR -->
+        <div class="background">
+            <div id="back">
+                <img
+                    src="{{ url_for('static', filename='assets/background-home.png') }}"
+                    class="img-fluid"
+                    alt="ovary img"
+                />
+            </div>
+            <header>
+                <a href="{{ url_for('home') }}"
+                    ><img
+                        src="{{ url_for('static', filename='assets/ovyou-title.png') }}"
+                        class="logo"
+                        alt="logo img"
+                /></a>
+                <nav class="up-nav">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a id="myBtn" href="#">How To Guide</a></li>
+                        <li><a href="{{ url_for('about_page')}}">About</a></li>
+                    </ul>
+                </nav>
+            </header>
         </div>
-      </div>
-    </div>
+        <!-- HOW TO GUIDE POP-UP -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>HOW TO GUIDE</h1>
+                <p>
+                    1. Download or follow the Input Data Excel Template.
+                    <a href="/static/assets/uploads/PCOS_Template.xlsx" download
+                        >Download for PCOS</a
+                    >
+                    or
+                    <a href="/static/assets/uploads/OC_template.xlsx" download
+                        >Download for Ovarian Cancer</a
+                    >
+                    <br />2. Choose which disease to predict: PCOS or Ovarian
+                    Cancer. <br />3. Select which model to use. It's either
+                    Support Vector Machine (SVM) or Decision Tree (DT). <br />4.
+                    Upload the excel file to upload box. <br />5. Click start to
+                    begin evaluation.
+                </p>
 
-    <script>
-      var modal = document.getElementById("myModal");
-      var btn = document.getElementById("myBtn");
-      var span = document.getElementsByClassName("close")[0];
+                <hr style="height: 5px; color: #ff0800" />
 
-      btn.onclick = function () {
-        modal.style.display = "block";
-      };
+                <p>It will then show the contents of the file.</p>
+                <p2>Placeholder</p2>
 
-      span.onclick = function () {
-        modal.style.display = "none";
-      };
+                <hr style="height: 5px; color: #ff0800" />
 
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-    </script>
+                <div class="modal-row">
+                    <div class="modal-col1">
+                        <p>
+                            After the evaluation, it will show the results on
+                            bottom whether it is <p1>POSITIVE</p1> or
+                            <p1>NEGATIVE</p1>.<br />Along with the details of
+                            which model has been used and some details about the
+                            patient's data.
+                        </p>
+                    </div>
+                    <div class="modal-col2">
+                        <img
+                            src="{{ url_for('static', filename='assets/sample-diagnosis.png') }}"
+                            class="img-fluid"
+                            alt="placeholder img"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script>
-      $(function () {
-        $("a").each(function () {
-          if ($(this).prop("href") == window.location.href) {
-            $(this).addClass("active");
-            $(this).parents("li").addClass("active");
-          }
-        });
-      });
-    </script>
+        <script>
+            var modal = document.getElementById("myModal");
+            var btn = document.getElementById("myBtn");
+            var span = document.getElementsByClassName("close")[0];
 
-    <script>
-      var backimg = document.getElementById("back");
+            btn.onclick = function () {
+                modal.style.display = "block";
+            };
 
-      if (
-        window.location.pathname == "/pcos_svm" ||
-        window.location.pathname == "/pcos_dt" ||
-        window.location.pathname == "/result" ||
-        window.location.pathname == "/about_page" ||
-        window.location.pathname == "/ovarian_svm" ||
-        window.location.pathname == "/ovarian_dt" ||
-        window.location.pathname == "/ovarian_result"
-      ) {
-        backimg.style.display = "none";
-      }
-    </script>
-    {% block content %} {% endblock %}
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+            span.onclick = function () {
+                modal.style.display = "none";
+            };
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
+
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $(function () {
+                $("a").each(function () {
+                    if ($(this).prop("href") == window.location.href) {
+                        $(this).addClass("active");
+                        $(this).parents("li").addClass("active");
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            var backimg = document.getElementById("back");
+
+            if (
+                window.location.pathname == "/pcos_svm" ||
+                window.location.pathname == "/pcos_dt" ||
+                window.location.pathname == "/result" ||
+                window.location.pathname == "/about_page" ||
+                window.location.pathname == "/ovarian_svm" ||
+                window.location.pathname == "/ovarian_dt" ||
+                window.location.pathname == "/ovarian_result"
+            ) {
+                backimg.style.display = "none";
+            }
+        </script>
+        {% block content %} {% endblock %}
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>

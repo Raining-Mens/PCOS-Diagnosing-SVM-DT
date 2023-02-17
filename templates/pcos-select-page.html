@@ -2,45 +2,46 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% block title %}OvYou · Home{% endblock %}
-  </head>
+    <head>
+        {% block title %}OvYou · Home{% endblock %}
+    </head>
 
-  <body>
-    {% block content %}
-    <!-- LANDING -->
-    <main id="home">
-      <div class="container-fluid">
-        <div class="col">
-          <h1>PCOS</h1>
-          <h2>PREDICTION TOOL</h2>
-          <div class="paragraph">
-            <p>
-              This tool will predict if the patient is positive Polycystic Ovary
-              Syndrome by examining physical and clinical assessment of the
-              patient using the machine learning models SVM and Decision Tree
-            </p>
-          </div>
-          <!-- BUTTONS TO CHOOSE WHICH CLASSIFIER -->
-          <div class="start-button">
-            <button
-              class="choose-button"
-              type="button"
-              onclick="window.location.href = 'pcos_svm'"
-            >
-              SVM
-            </button>
-            <button
-              class="choose-button"
-              type="button"
-              onclick="window.location.href = 'pcos_dt'"
-            >
-              Decision Tree
-            </button>
-          </div>
-        </div>
-      </div>
-    </main>
-    {% endblock %}
-  </body>
+    <body>
+        {% block content %}
+        <!-- LANDING -->
+        <main id="home">
+            <div class="container-fluid">
+                <div class="col">
+                    <h1>PCOS</h1>
+                    <h2>PREDICTION TOOL</h2>
+                    <div class="paragraph">
+                        <p>
+                            This tool will predict if the patient is positive
+                            Polycystic Ovary Syndrome by examining physical and
+                            clinical assessment of the patient using the machine
+                            learning models SVM and Decision Tree
+                        </p>
+                    </div>
+                    <!-- BUTTONS TO CHOOSE WHICH CLASSIFIER -->
+                    <div class="start-button">
+                        <button
+                            class="choose-button"
+                            type="button"
+                            onclick="window.location.href = 'pcos_svm'"
+                        >
+                            SVM
+                        </button>
+                        <button
+                            class="choose-button"
+                            type="button"
+                            onclick="window.location.href = 'pcos_dt'"
+                        >
+                            Decision Tree
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% endblock %}
+    </body>
 </html>
